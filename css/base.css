@@ -1,0 +1,11 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+    line-height: 1.6rem;
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    box-sizing: border-box;
+}
