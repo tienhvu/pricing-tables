@@ -7,11 +7,45 @@
     <link rel="stylesheet" href="/css/normalize.css">
     <link rel="stylesheet" href="/css/base.css">
     <link rel="stylesheet" href="/css/custom-responsive.css">
+    <link rel="stylesheet" href="/css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 </head>
 <body>
-    <h1>Hi</h1>
+    <div class="container">
+        <header class="header">
+            <div class="header__logo">
+                <img class="header__logo__img" src="/images/logo.png" alt="Logo">
+                <h1 class="header__logo__title">Thegem</h1>
+            </div>
+            <nav class="header__navbar">
+                <ul class="header__navbar-list">
+                    <li class="header__navbar-item">Home</li>
+                    <li class="header__navbar-item header__navbar-item--current">Pages</li>
+                    <li class="header__navbar-item">Blog</li>
+                    <li class="header__navbar-item">Portfolios</li>
+                    <li class="header__navbar-item">Shop</li>
+                    <li class="header__navbar-item">Features</li>
+                    <li class="header__navbar-item">Elements</li>
+                </ul>
+            </nav>
+            <div class="header__feature">
+                <div class="header__feature-item header__language">
+                    <img src="/images/language_eng.png" alt="">
+                </div>
+                <div class="header__feature-item header__search">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </div>
+                <div class="header__feature-item header__cart">
+                    <!-- Bản pro -->
+                    <!-- <i class="fa-regular fa-basket-shopping-plus"></i> -->
+                    <i class="fa-solid fa-basket-shopping"></i>
+                    <div class="header__cart--count">2</div>
+                </div>
+            </div>
+        </header>
+    </div>
 </body>
 </html>
