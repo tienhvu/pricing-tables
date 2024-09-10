@@ -16,39 +16,54 @@
 <body>
     <div class="container">
         <header class="header">
-            <div class="header__logo">
-                <img class="header__logo__img" src="/images/logo.png" alt="Logo">
-                <h1 class="header__logo__title">Thegem</h1>
-            </div>
-            <nav class="header__navbar">
-                <ul class="header__navbar-list">
-                    <li class="header__navbar-item">Home</li>
-                    <li class="header__navbar-item header__navbar-item--current">Pages</li>
-                    <li class="header__navbar-item">Blog</li>
-                    <li class="header__navbar-item">Portfolios</li>
-                    <li class="header__navbar-item">Shop</li>
-                    <li class="header__navbar-item">Features</li>
-                    <li class="header__navbar-item">Elements</li>
+            <nav class="navbar">
+                <div class="navbar__logo">
+                    <img class="navbar__logo-image" src="/images/logo.png" alt="Logo">
+                    <a class="navbar-brand" href="#">Thegem</a>
+                </div>
+               
+                <ul class="navbar__list">
+                    <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+                    <li class="nav-item navbar-item--current"><a href="" class="nav-link">Pages</a></li>
+                    <li class="nav-item"><a href="" class="nav-link">Blog</a></li>
+                    <li class="nav-item"><a href="" class="nav-link">Portfolios</a></li>
+                    <li class="nav-item"><a href="" class="nav-link">Shop</a></li>
+                    <li class="nav-item"><a href="" class="nav-link">Features</a></li>
+                    <li class="nav-item"><a href="" class="nav-link">Elements</a></li>
                 </ul>
+                
+                <div class="navbar__tools">
+                    <div class="navbar__tools-item navbar__language">
+                        <img src="/images/language_eng.png" alt="">
+                    </div>
+                    <div class="navbar__tools-item navbar__search">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </div>
+                    <div class="navbar__tools-item navbar__cart">
+                        <i class="fa-solid fa-basket-shopping"></i>
+                        <div class="navbar__cart--count">2</div>
+                    </div>
+                    <label for="navbar-toggle" class="navbar__tools-item navbar__toggle-label">
+                        <i class="fa-solid fa-list"></i>
+                    </label>
+                </div>
             </nav>
-            <div class="header__feature">
-                <div class="header__feature-item header__language">
-                    <img src="/images/language_eng.png" alt="">
-                </div>
-                <div class="header__feature-item header__search">
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                </div>
-                <div class="header__feature-item header__cart">
-                    <!-- Bản pro -->
-                    <!-- <i class="fa-regular fa-basket-shopping-plus"></i> -->
-                    <i class="fa-solid fa-basket-shopping"></i>
-                    <div class="header__cart--count">2</div>
-                </div>
 
-                <div class="header__feature-item header__menu-toggle" id="menuToggle">
-                    <i class="fa-solid fa-list"></i>
-                </div>
+            <!-- Mobile -->
+            <input type="checkbox" id="navbar-toggle" class="navbar__toggle" hidden>
+            <div class="navbar navbar__menu--mobile">
+                <ul class="navbar__list--mobile">
+                    <label for="navbar-toggle" class="nav-item nav__item--mobile nav__close"><i class="fa-solid fa-xmark"></i></label>
+                    <li class="nav-item nav__item--mobile"><a class="nav-link" href="#">Home</a></li>
+                    <li class="nav-item nav__item--mobile"><a href="" class="nav-link">Pages</a></li>
+                    <li class="nav-item nav__item--mobile"><a href="" class="nav-link">Blog</a></li>
+                    <li class="nav-item nav__item--mobile"><a href="" class="nav-link">Portfolios</a></li>
+                    <li class="nav-item nav__item--mobile"><a href="" class="nav-link">Shop</a></li>
+                    <li class="nav-item nav__item--mobile"><a href="" class="nav-link">Features</a></li>
+                    <li class="nav-item nav__item--mobile"><a href="" class="nav-link">Elements</a></li>
+                </ul>
             </div>
+            <label for="navbar-toggle" class="navbar__overlay"></label>
         </header>
     </div>
 </body>
