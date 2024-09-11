@@ -1,3 +1,9 @@
+:root {
+  --navbar-title-color: #99a9b5;
+  --hover-color: #00bcd4;
+  --dark-background: #2b2d3d;
+}
+
 * {
     box-sizing: border-box;
 }

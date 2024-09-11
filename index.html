@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,64 +8,57 @@
     <link rel="stylesheet" href="/css/normalize.css">
     <link rel="stylesheet" href="/css/base.css">
     <link rel="stylesheet" href="/css/custom-responsive.css">
-    <link rel="stylesheet" href="/css/style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="/css/header.css">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 </head>
+
 <body>
     <div class="container">
         <header class="header">
-            <nav class="navbar">
-                <div class="navbar__logo">
-                    <img class="navbar__logo-image" src="/images/logo.png" alt="Logo">
-                    <a class="navbar-brand" href="#">Thegem</a>
+            <div class="row align-items-center justify-content-around">
+                <div class="header__logo col-auto d-flex align-items-center">
+                    <img class="header__logo-image" src="/images/logo.png" alt="Logo">
+                    <p class="header__logo-brand">Thegem</p>
                 </div>
-               
-                <ul class="navbar__list">
-                    <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
-                    <li class="nav-item navbar-item--current"><a href="" class="nav-link">Pages</a></li>
-                    <li class="nav-item"><a href="" class="nav-link">Blog</a></li>
-                    <li class="nav-item"><a href="" class="nav-link">Portfolios</a></li>
-                    <li class="nav-item"><a href="" class="nav-link">Shop</a></li>
-                    <li class="nav-item"><a href="" class="nav-link">Features</a></li>
-                    <li class="nav-item"><a href="" class="nav-link">Elements</a></li>
+    
+                <input type="checkbox" id="header-toggle" class="header__toggle" hidden>
+                <label for="header-toggle" class="header__overlay"></label>
+                <ul class="header__list d-none d-lg-flex  flex-md-row justify-content-md-center">
+                    <li class="header__list-item d-lg-none-important d-block">
+                        <label for="header-toggle" class="header__toggle--close">
+                            <i class="fa-solid fa-xmark"></i>
+                        </label>
+                    </li>
+                    <li class="header__list-item"><a class="header__link" href="#">Home</a></li>
+                    <li class="header__list-item header__item--current"><a class="header__link" href="#">Pages</a></li>
+                    <li class="header__list-item"><a class="header__link" href="#">Blog</a></li>
+                    <li class="header__list-item"><a class="header__link" href="#">Portfolios</a></li>
+                    <li class="header__list-item"><a class="header__link" href="#">Shop</a></li>
+                    <li class="header__list-item"><a class="header__link" href="#">Features</a></li>
+                    <li class="header__list-item"><a class="header__link" href="#">Elements</a></li>
                 </ul>
-                
-                <div class="navbar__tools">
-                    <div class="navbar__tools-item navbar__language">
-                        <img src="/images/language_eng.png" alt="">
+    
+                <div class="header__tools col-auto d-flex align-items-center">
+                    <div class="header__tool header__tool--language">
+                        <img src="/images/language_eng.png" alt="Language">
                     </div>
-                    <div class="navbar__tools-item navbar__search">
+                    <div class="header__tool header__tool--search">
                         <i class="fa-solid fa-magnifying-glass"></i>
                     </div>
-                    <div class="navbar__tools-item navbar__cart">
+                    <div class="header__tool header__tool--cart d-flex align-items-center">
                         <i class="fa-solid fa-basket-shopping"></i>
-                        <div class="navbar__cart--count">2</div>
+                        <div class="header__tool-cart-count">2</div>
                     </div>
-                    <label for="navbar-toggle" class="navbar__tools-item navbar__toggle-label">
+                    <label for="header-toggle" class="header__tool header__tool--toggle d-lg-none-important">
                         <i class="fa-solid fa-list"></i>
                     </label>
                 </div>
-            </nav>
-
-            <!-- Mobile -->
-            <input type="checkbox" id="navbar-toggle" class="navbar__toggle" hidden>
-            <div class="navbar navbar__menu--mobile">
-                <ul class="navbar__list--mobile">
-                    <label for="navbar-toggle" class="nav-item nav__item--mobile nav__close"><i class="fa-solid fa-xmark"></i></label>
-                    <li class="nav-item nav__item--mobile"><a class="nav-link" href="#">Home</a></li>
-                    <li class="nav-item nav__item--mobile"><a href="" class="nav-link">Pages</a></li>
-                    <li class="nav-item nav__item--mobile"><a href="" class="nav-link">Blog</a></li>
-                    <li class="nav-item nav__item--mobile"><a href="" class="nav-link">Portfolios</a></li>
-                    <li class="nav-item nav__item--mobile"><a href="" class="nav-link">Shop</a></li>
-                    <li class="nav-item nav__item--mobile"><a href="" class="nav-link">Features</a></li>
-                    <li class="nav-item nav__item--mobile"><a href="" class="nav-link">Elements</a></li>
-                </ul>
             </div>
-            <label for="navbar-toggle" class="navbar__overlay"></label>
         </header>
+
     </div>
 </body>
 </html>
