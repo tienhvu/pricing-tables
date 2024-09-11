@@ -17,48 +17,45 @@
 
 <body>
     <div class="container">
-        <header class="header">
-            <div class="row align-items-center justify-content-around">
-                <div class="header__logo col-auto d-flex align-items-center">
-                    <img class="header__logo-image" src="/images/logo.png" alt="Logo">
-                    <p class="header__logo-brand">Thegem</p>
-                </div>
-    
-                <input type="checkbox" id="header-toggle" class="header__toggle" hidden>
-                <label for="header-toggle" class="header__overlay"></label>
-                <ul class="header__list d-none d-lg-flex  flex-md-row justify-content-md-center">
-                    <li class="header__list-item d-lg-none-important d-block">
-                        <label for="header-toggle" class="header__toggle--close">
-                            <i class="fa-solid fa-xmark"></i>
-                        </label>
-                    </li>
-                    <li class="header__list-item"><a class="header__link" href="#">Home</a></li>
-                    <li class="header__list-item header__item--current"><a class="header__link" href="#">Pages</a></li>
-                    <li class="header__list-item"><a class="header__link" href="#">Blog</a></li>
-                    <li class="header__list-item"><a class="header__link" href="#">Portfolios</a></li>
-                    <li class="header__list-item"><a class="header__link" href="#">Shop</a></li>
-                    <li class="header__list-item"><a class="header__link" href="#">Features</a></li>
-                    <li class="header__list-item"><a class="header__link" href="#">Elements</a></li>
-                </ul>
-    
-                <div class="header__tools col-auto d-flex align-items-center">
-                    <div class="header__tool header__tool--language">
-                        <img src="/images/language_eng.png" alt="Language">
-                    </div>
-                    <div class="header__tool header__tool--search">
-                        <i class="fa-solid fa-magnifying-glass"></i>
-                    </div>
-                    <div class="header__tool header__tool--cart d-flex align-items-center">
-                        <i class="fa-solid fa-basket-shopping"></i>
-                        <div class="header__tool-cart-count">2</div>
-                    </div>
-                    <label for="header-toggle" class="header__tool header__tool--toggle d-lg-none-important">
-                        <i class="fa-solid fa-list"></i>
+        <header class="header d-flex justify-content-around align-items-center flex-wrap">
+            <a class="header__logo header__link d-flex  align-items-center" href="">
+                <img class="header__logo-image" src="/images/logo.png" alt="Logo">
+                <p class="header__logo-brand">Thegem</p> 
+            </a>
+
+            <input type="checkbox" id="header-toggle" class="header__toggle" hidden>
+            <label for="header-toggle" class="header__overlay"></label>
+            <ul class="header__list d-none d-lg-flex gap-1">
+                <li class="header__list-item d-lg-none-important d-block">
+                    <label for="header-toggle" class="header__toggle--close">
+                        <i class="fa-solid fa-xmark"></i>
                     </label>
+                </li>
+                <li class="header__list-item"><a class="header__link" href="#">Home</a></li>
+                <li class="header__list-item header__item--current"><a class="header__link" href="#">Pages</a></li>
+                <li class="header__list-item"><a class="header__link" href="#">Blog</a></li>
+                <li class="header__list-item"><a class="header__link" href="#">Portfolios</a></li>
+                <li class="header__list-item"><a class="header__link" href="#">Shop</a></li>
+                <li class="header__list-item"><a class="header__link" href="#">Features</a></li>
+                <li class="header__list-item"><a class="header__link" href="#">Elements</a></li>
+            </ul>
+
+            <div class="header__tools d-flex align-items-center">
+                <div class="header__tool header__tool--language">
+                    <img src="/images/language_eng.png" alt="Language">
                 </div>
+                <div class="header__tool header__tool--search">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </div>
+                <div class="header__tool header__tool--cart d-flex align-items-center">
+                    <i class="fa-solid fa-basket-shopping"></i>
+                    <div class="header__tool-cart-count">2</div>
+                </div>
+                <label for="header-toggle" class="header__tool header__tool--toggle d-lg-none-important">
+                    <i class="fa-solid fa-list"></i>
+                </label>
             </div>
         </header>
-
     </div>
 </body>
 </html>

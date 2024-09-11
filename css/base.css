@@ -1,7 +1,7 @@
 :root {
-  --navbar-title-color: #99a9b5;
-  --hover-color: #00bcd4;
-  --dark-background: #2b2d3d;
+  --light-gray-blue: #99a9b5;
+  --dark-gray-blue: #2b2d3d;
+  --light-blue: #00bcd4;
 }
 
 * {
@@ -9,8 +9,7 @@
 }
 
 html {
-    font-size: 62.5%;
-    line-height: 1.6rem;
+    font-size: 16px;
     font-family: "Montserrat", sans-serif;
     font-optical-sizing: auto;
     box-sizing: border-box;
