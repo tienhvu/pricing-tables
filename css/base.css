@@ -1,10 +1,16 @@
+:root {
+  --light-gray-blue: #99a9b5;
+  --dark-gray-blue: #2b2d3d;
+  --light-blue: #00bcd4;
+  --size-multiplier: 1;
+}
+
 * {
     box-sizing: border-box;
 }
 
 html {
-    font-size: 62.5%;
-    line-height: 1.6rem;
+    font-size: 16px;
     font-family: "Montserrat", sans-serif;
     font-optical-sizing: auto;
     box-sizing: border-box;
