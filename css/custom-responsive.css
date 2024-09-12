@@ -1,6 +1,7 @@
 :root {
     --columns: 12;
     --gap: 32px;
+    --xs-breakpoint: 480px;
     --sm-breakpoint: 576px;
     --md-breakpoint: 768px;
     --lg-breakpoint: 992px;
@@ -54,7 +55,7 @@
     display: flex;
     flex-wrap: wrap;
     margin-right: calc(-1 * var(--gap) / 2);
-    margin-left: calc(-1 * var(--gap) / 2);;
+    margin-left: calc(-1 * var(--gap) / 2);
 }
 
 [class^="col-"] {
@@ -88,6 +89,21 @@
   .col-10 { flex: 0 0 83.333333%; max-width: 83.333333%; }
   .col-11 { flex: 0 0 91.666667%; max-width: 91.666667%; }
   .col-12 { flex: 0 0 100%; max-width: 100%; }
+
+  @media (min-width: 480px) {
+    .col-xs-1 { flex: 0 0 8.333333%; max-width: 8.333333%; }
+    .col-xs-2 { flex: 0 0 16.666667%; max-width: 16.666667%; }
+    .col-xs-3 { flex: 0 0 25%; max-width: 25%; }
+    .col-xs-4 { flex: 0 0 33.333333%; max-width: 33.333333%; }
+    .col-xs-5 { flex: 0 0 41.666667%; max-width: 41.666667%; }
+    .col-xs-6 { flex: 0 0 50%; max-width: 50%; }
+    .col-xs-7 { flex: 0 0 58.333333%; max-width: 58.333333%; }
+    .col-xs-8 { flex: 0 0 66.666667%; max-width: 66.666667%; }
+    .col-xs-9 { flex: 0 0 75%; max-width: 75%; }
+    .col-xs-10 { flex: 0 0 83.333333%; max-width: 83.333333%; }
+    .col-xs-11 { flex: 0 0 91.666667%; max-width: 91.666667%; }
+    .col-xs-12 { flex: 0 0 100%; max-width: 100%; }
+  }
 
   @media (min-width: 576px) {
     .col-sm-1 { flex: 0 0 8.333333%; max-width: 8.333333%; }
@@ -158,6 +174,9 @@
 .align-items-center { align-items: center; }
 .flex-wrap { flex-wrap: wrap; }
 
+.p-absolute {
+  position: absolute;
+}
 /* Display utilities */
 .d-none { display: none; }
 .d-block { display: block; }
@@ -244,7 +263,11 @@
 .py-4 { padding-top: 24px; padding-bottom: 24px; }
 .py-5 { padding-top: 48px; padding-bottom: 48px; }
 
-.my-1 { margin-top: 0.25rem; margin-bottom: 0.25rem; }
+.my-1 { margin-top: 4px; margin-bottom: 4px; }
+.my-2 { margin-top: 8px; margin-bottom: 8px; }
+.my-3 { margin-top: 16px; margin-bottom: 16px; }
+.my-4 { margin-top: 24px; margin-bottom: 24px; }
+.my-5 { margin-top: 48px; margin-bottom: 48px; }
 
 .mb-1 { margin-bottom: 4px; }
 .mb-2 { margin-bottom: 8px; }
@@ -278,9 +301,10 @@
 }
 
 /* Responsive size-multiplier */
+
 @media (max-width: 480px) {
     :root {
-      --size-multiplier: 0.8;
+      --size-multiplier: 0.7;
     }
     .justify-content-xs-around {
       justify-content: space-around;

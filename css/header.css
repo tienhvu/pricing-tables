@@ -1,9 +1,8 @@
 .header {
-  position: fixed;
+  position: sticky;
   top: 0;
-  left: 0;
-  right: 0;
   background-color: var(--dark-gray-blue);
+  z-index: 100;
 }
 
 .header__logo-image {
@@ -130,10 +129,11 @@
     left: calc(100% - 250px);
     width: 250px;
     padding-bottom: 27px;
-    z-index: 1;
     transition: 0.3s ease-in-out;
     border-bottom-left-radius: 6px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
+  
   }
 
   .header__toggle:checked ~ .header__list .header__list-item {
