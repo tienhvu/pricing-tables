@@ -116,6 +116,7 @@
     .col-sm-12 { flex: 0 0 100%; max-width: 100%; }
   }
 
+
   @media (min-width: 768px) {
     .col-md-1 { flex: 0 0 8.333333%; max-width: 8.333333%; }
     .col-md-2 { flex: 0 0 16.666667%; max-width: 16.666667%; }
@@ -170,9 +171,6 @@
 .align-items-center { align-items: center; }
 .flex-wrap { flex-wrap: wrap; }
 
-.p-absolute {
-  position: absolute;
-}
 /* Display utilities */
 .d-none { display: none; }
 .d-block { display: block; }
