@@ -3,6 +3,7 @@
   --dark-gray-blue: #2b2d3d;
   --light-blue: #00bcd4;
   --size-multiplier: 1;
+  --size-multiplier-sub: 1;
 }
 
 * {
