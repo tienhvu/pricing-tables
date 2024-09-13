@@ -28,6 +28,7 @@
 }
 
 .slider__button {
+  display: inline-block;
   min-width: calc(225px * var(--size-multiplier));
   font-size: calc(1.1875rem * var(--size-multiplier));
   font-weight: bold;
