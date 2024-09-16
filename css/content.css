@@ -1,0 +1,157 @@
+.pricing-table {
+    font-family:  "Source Sans 3", sans-serif;
+    border: 1px solid #dfe5e7;
+}
+
+.pricing-table__top {
+    position: relative;
+    height: 272px;
+    margin: -1px;
+}
+
+.pricing-table__pricing {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background-color: #393d50;
+    transform: translateY(-50%);
+    order: 1;
+}
+
+.pricing-table__price {
+    font-size: 2rem;
+    font-weight: lighter;
+}
+
+.pricing-table__period {
+    color: #99a9b5; 
+    font-size: 1rem;
+}
+
+.pricing-table__title {
+    position: absolute;
+    bottom: 48px;
+    font-size: calc(2.25rem*var(--size-multiplier));
+    text-transform: uppercase;
+    color: #ffffff;
+    font-family: "Montserrat", sans-serif;
+}
+
+.pricing-table__title-main {
+    font-size: inherit;
+    font-weight: bold;
+}
+
+.pricing-table__title-sub {
+    font-size: inherit;
+    font-weight: 300;
+}
+
+.pricing-table__title-annotation {
+    font-size: 0.875rem;
+    font-family:  "Source Sans 3", sans-serif;
+    text-transform: none;
+}
+
+.pricing-table__subtitle-main {
+    font-size: 1.5rem;
+    color: #5f727f;
+    font-weight: lighter;
+}
+
+.pricing-table__subtitle-secondary{
+    font-size: 0.875rem;
+    color: #99a9b5;
+    font-weight: lighter;
+}
+
+.pricing-table__feature {
+    font-size: 1rem;
+    color: #5f727f;
+}
+
+
+.pricing-table__feature:nth-child(even) {
+    background-color: #ffffff;
+}
+
+.pricing-table__feature:nth-child(odd) {
+    background-color: #F4F6F7;
+}
+
+.pricing-table__checkbox {
+    position: relative;
+}
+
+.pricing-table__checkbox--unchecked {
+    position: absolute;
+    font-size: 1rem;
+}
+
+.pricing-table__checkbox--checked {
+    transform: translate(10%, -12%);
+    font-size: 1rem;
+}
+
+
+.pricing-table__button {
+    display: inline-block;
+    width: 150px;
+    background-color: #b6c6c9;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1.1875rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    border-radius: 40px;
+    font-family: "Montserrat", sans-serif;
+    order: 2;
+}
+
+.pricing-table__button:hover {
+    background-color: #2c2e3d;
+}
+
+.pricing-table__button:hover + .pricing-table__top .pricing-table__pricing {
+    background-color: #2c2e3d;
+}
+
+.pricing-table__badge-icon {
+    position: absolute;
+    transform: translate(68%, -92%);
+}
+
+.pricing-table__badge-text{
+    position: absolute;
+    color: #ffffff;
+    font-size: 0.75rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-family: "Montserrat", sans-serif;
+    transform: translate(198%, -245%);
+}
+
+.pricing-table__top--basic {
+    background-color: var(--light-blue);
+}
+
+.pricing-table__top--advanced {
+    background-color: var(--sky-blue-dark);
+}
+
+.pricing-table__top--life {
+    background-color: var(--purple-medium);
+}
+
+.pricing-table__price--basic {
+    color: #04D7F2;
+}
+
+.pricing-table__price--advanced {
+    color: #1aa3e1;
+}
+
+.pricing-table__price--life {
+    color: #9986ff;
+}
