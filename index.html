@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="/css/custom-responsive.css">
     <link rel="stylesheet" href="/css/header.css">
     <link rel="stylesheet" href="/css/slider.css">
-    <link rel="stylesheet" href="/css/content.css">
+    <link rel="stylesheet" href="/css//content.css">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
         rel="stylesheet">
@@ -18,6 +18,7 @@
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 </head>
+
 
 <body>
     <header class="header">
@@ -32,7 +33,7 @@
 
             <ul class="header__list d-none d-lg-flex gap-1">
                 <li class="header__list-item d-lg-none-important d-block">
-                    <label for="header-toggle" class="header__toggle--close ml-2">
+                    <label for="header-toggle" class="header__toggle--close mx-2">
                         <i class="fa-solid fa-xmark"></i>
                     </label>
                 </li>
@@ -65,56 +66,52 @@
     </header>
 
     <div class="slider">
-        <div class="container d-flex flex-column align-items-center pt-9 pt-xs-9 justify-content-xs-around">
-            <div class="col-lg-10 col-sm-12 text-center">
-                <div class="slider__logo py-6 py-xs-6">
-                    <i class="fa-solid fa-list font-xs"></i>
+        <div class="container d-flex flex-column align-items-center pt-11 pb-6 pt-xs-11 pb-xs-6 justify-content-xs-around">
+            <div class="col-lg-10 col-sm-12 text-center px-0">
+                <div class="slider__logo pt-3 pb-9 pt-xs-3 pt-xs-9">
+                    <i class="fa-solid fa-list-ul"></i>
                 </div>
-                <div class="slider__title pt-8 pb-4 pt-xs-8 pb-xs-4">
+                <div class="slider__title pt-2 pb-2 pt-xs-2 pb-xs-3">
                     Pricing
                     <span class="slider__title slider__title--sub">Tables</span>
                 </div>
-                <p class="slider__content my-6 my-xs-6">
+                <p class="slider__content m-0 pt-6 pt-xs-6 pb-9 pb-xs-9">
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia
                     deserunt ut temporibus atque error! Quaerat optio placeat aperiam,
                     voluptates eligendi iure commodi nisi ipsam alias unde sed
                     consequatur, odit ipsa.
                 </p>
-                <div class="d-flex flex-wrap justify-content-center py-6 py-xs-6">
-                    <div class="col-lg-5 col-sm-12 text-center py-md-2">
-                        <a class="slider__button slider__button-purchase px-4 py-3 px-xs-4 py-xs-3">
-                            Purchase now
-                        </a>
-                    </div>
-                    <div class="col-lg-5 col-sm-12 text-center py-md-2">
-                        <a class="slider__button slider__button-details px-4 py-3 px-xs-4 py-xs-3">
-                            More details
-                        </a>
-                    </div>
+                <div class="d-flex flex-wrap justify-content-center pt-1 pb-11 pt-xs-1 pb-xs-11 gap-5 ">
+                    <button class="slider__button slider__button-purchase px-4 py-3 px-xs-4 py-xs-3">
+                        Purchase now
+                    </button>
+                    <button class="slider__button slider__button-details px-4 py-3 px-xs-4 py-xs-3">
+                        More details
+                    </button>
                 </div>
             </div>
-
-            <a class="slider__arrow slider__arrow--prev text-center p-2">
+            <button class="slider__arrow slider__arrow--prev text-center p-2" aria-label="Previous slide">
                 <i class="fa-solid fa-arrow-left"></i>
-            </a>
-            <a class="slider__arrow slider__arrow--next text-center p-2">
-                <i class="fa-solid fa-arrow-right"></i>
-            </a>
-            <div class="row d-flex justify-content-center pt-9 mb-5 pt-xs-9 mb-xs-5">
-                <i class="slider__indicator slider__indicator--current fa-regular fa-circle mx-2 my-3"></i>
-                <i class="slider__indicator fa-regular fa-circle mx-2 my-3"></i>
-                <i class="slider__indicator fa-regular fa-circle mx-2 my-3"></i>
+            </button>
+            <button class="slider__arrow slider__arrow--next text-center p-2" aria-label="Next slide">
+                <i class="fa-solid fa-arrow-right"> </i>
+            </button>
+
+            <div class="slider__indicators d-flex justify-content-center pt-5 pb-2 pt-xs-5 pb-xs-2 gap-4">
+                <div class="slider__indicator slider__indicator--current"></div>
+                <div class="slider__indicator"></div>
+                <div class="slider__indicator"></div>
             </div>
         </div>
     </div>
 
-    <!-- Content -->
-    <div class="content">
-        <div class="container d-flex flex-column align-items-center pt-6 pt-xs-6 pb-4 pb-xs-4 justify-content-xs-around">
-            <div class="col-lg-12 px-0">
+      <!-- Content -->
+      <div class="content pt-4">
+        <div class="container d-flex flex-column align-items-center pt-11 pt-xs-11 pb-4 pb-xs-4 justify-content-xs-around">
+            <div class="col-lg-10 px-0">
                 <div class="row mx-0-important justify-content-center">
                     <!-- Pricing Table 1 -->
-                    <div class="col-lg-4 col-md-6 col-sm-10 px-0 my-9 d-flex flex-column pricing-table">
+                    <div class="col-lg-4 col-md-6 col-sm-10 px-0  d-flex flex-column pricing-table">
                         <a href="#" class="pricing-table__button m-7 m-xs-7 py-3 px-6 text-center">Order</a>
                         <div class="pricing-table__top pricing-table__top--basic">
                             <div
@@ -298,5 +295,6 @@
             </div>
         </div>
     </div>
+
 </body>
 </html>

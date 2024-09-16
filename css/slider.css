@@ -2,7 +2,6 @@
   position: relative;
   background-color: var(--dark-gray-blue);
   color: #ffffff;
-  line-height: initial;
 }
 
 .slider__logo .fa-solid {
@@ -28,7 +27,6 @@
 }
 
 .slider__button {
-  display: inline-block;
   min-width: calc(225px * var(--size-multiplier));
   font-size: calc(1.1875rem * var(--size-multiplier));
   font-weight: bold;
@@ -36,7 +34,7 @@
   border-radius: 40px;
   color: #ffffff;
   background-color: transparent;
-  border: 2px solid #ffffff;
+  border: 3px solid #ffffff;
 }
 
 .slider__button:hover {
@@ -69,10 +67,39 @@
 }
 
 .slider__indicator {
-  border-radius: 50%;
-  font-size: 1rem;
+  position: relative;
+  width: 1.5rem;
+  height: 1.5rem;
+  cursor: pointer;
+  top: 4px;
 }
 
-.slider__indicator--current {
+.slider__indicator::before,
+.slider__indicator::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+}
+
+.slider__indicator::before {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 2px solid white;
+  box-sizing: border-box;
+
+}
+
+.slider__indicator::after {
+  top: 50%;
+  left: 50%;
+  width: 0.9rem;
+  height: 0.9rem;
+  background-color: transparent;
+  transform: translate(-50%, -50%);
+}
+
+.slider__indicator--current::after {
   background-color: var(--light-blue);
 }
