@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,11 +8,17 @@
     <link rel="stylesheet" href="/css/base.css">
     <link rel="stylesheet" href="/css/custom-responsive.css">
     <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="/css/slider.css">
+    <link rel="stylesheet" href="/css/content.css">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
         rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 </head>
+
 
 <body>
     <header class="header">
@@ -60,6 +65,244 @@
         </div>
     </header>
 
-</body>
+    <div class="slider">
+        <div class="container d-flex flex-column align-items-center pt-11 pb-6 pt-xs-7 pb-xs-4 justify-content-xs-around">
+            <div class="col-lg-10 col-sm-12 text-center px-0">
+                <div class="slider__logo pt-3 pb-9 pt-xs-3 pb-xs-5">
+                    <i class="fa-solid fa-list-ul"></i>
+                </div>
+                <div class="slider__title pt-2 pb-2 pt-xs-2 pb-xs-2">
+                    Pricing
+                    <span class="slider__title slider__title--sub">Tables</span>
+                </div>
+                <p class="slider__content m-0 pt-6 pt-xs-6 pb-9 pb-xs-5">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia
+                    deserunt ut temporibus atque error! Quaerat optio placeat aperiam,
+                    voluptates eligendi iure commodi nisi ipsam alias unde sed
+                    consequatur, odit ipsa.
+                </p>
+                <div class="d-flex flex-wrap justify-content-center pt-1 pb-11 pt-xs-1 pb-xs-3 gap-4">
+                    <button class="slider__button slider__button-purchase px-4 py-3 px-xs-4 py-xs-3">
+                        Purchase now
+                    </button>
+                    <button class="slider__button slider__button-details px-4 py-3 px-xs-4 py-xs-3">
+                        More details
+                    </button>
+                </div>
+            </div>
+            <button class="slider__arrow slider__arrow--prev text-center p-2" aria-label="Previous slide">
+                <i class="fa-solid fa-arrow-left"></i>
+            </button>
+            <button class="slider__arrow slider__arrow--next text-center p-2" aria-label="Next slide">
+                <i class="fa-solid fa-arrow-right"> </i>
+            </button>
 
+            <div class="slider__indicators d-flex justify-content-center pt-5 pb-2 pt-xs-4 pb-xs-2 gap-4">
+                <div class="slider__indicator slider__indicator--current"></div>
+                <div class="slider__indicator"></div>
+                <div class="slider__indicator"></div>
+            </div>
+        </div>
+    </div>
+
+      <!-- Content -->
+      <div class="content">
+        <div class="container d-flex flex-column align-items-center pt-4 pt-xs-4 pb-2 justify-content-xs-around">
+            <div class="col-lg-12 px-0 pb-11 row mx-0-important justify-content-center">
+                <!-- Pricing Table 1 -->
+                <div class="col-lg-4 col-md-6 col-sm-10 pt-11 px-0 d-flex flex-column pricing-table">
+                    <div class="pricing-table__top pricing-table__top--basic">
+                        <div
+                            class="pricing-table__pricing d-flex flex-column justify-content-center align-items-center">
+                            <div class="pricing-table__price pricing-table__price--basic ">$99</div>
+                            <div class="pricing-table__period">/person</div>
+                        </div>
+                        <div class="pricing-table__title d-flex flex-column gap-2 gap-xs-2 px-7 px-xs-7">
+                            <h1 class="pricing-table__main-title my-0">Basic</h1>
+                            <h2 class="pricing-table__sub-title my-0">Price plan</h2>
+                        </div>
+                    </div>
+                    <div class="pricing-table__bottom">
+                        <div class="pricing-table__subtitle d-flex  flex-column gap-1 py-4 px-7 px-xs-7">
+                            <h3 class="pricing-table__subtitle-main my-0">Subtitle goes here</h3>
+                            <h4 class="pricing-table__subtitle-secondary my-0">Subtitle second line goes here lorem ipsum*</h4>
+                        </div>
+                        <div class="pricing-table__features">
+                            <div class="pricing-table__feature d-flex align-items-center gap-3 px-7 px-xs-7">
+                                <div class="pricing-table__checkbox">
+                                    <i class="fa-regular fa-square pricing-table__checkbox--unchecked"></i>
+                                    <i class="fa-solid fa-check pricing-table__checkbox--checked"></i>
+                                </div>
+                                <p class="m-0 py-3">Lorem ipsum dolor sit amet</p>
+                            </div>
+                            <div class="pricing-table__feature d-flex align-items-center gap-3 px-7 px-xs-7">
+                                <div class="pricing-table__checkbox">
+                                    <i class="fa-regular fa-square pricing-table__checkbox--unchecked"></i>
+                                    <i class="fa-solid fa-check pricing-table__checkbox--checked"></i>
+                                </div>
+                                <p class="m-0 py-3">Consectetur adipisicing elit sed do</p>
+                            </div>
+                            <div class="pricing-table__feature d-flex align-items-center gap-3 px-7 px-xs-7">
+                                <div class="pricing-table__checkbox">
+                                    <i class="fa-regular fa-square pricing-table__checkbox--unchecked"></i>
+                                    <i class="fa-solid fa-check pricing-table__checkbox--checked"></i>
+                                </div>
+                                <p class="m-0 py-3">Eiusmod tempor incididunt ut</p>
+                            </div>
+                            <div class="pricing-table__feature d-flex align-items-center gap-3 px-7 px-xs-7">
+                                <div class="pricing-table__checkbox">
+                                    <i class="fa-regular fa-square pricing-table__checkbox--unchecked"></i>
+                                    <i class="fa-solid fa-check pricing-table__checkbox--checked"></i>
+                                </div>
+                                <p class="m-0 py-3">Labore et dolore magna</p>
+                            </div>
+                            <div class="pricing-table__feature d-flex align-items-center gap-3 px-7 px-xs-7">
+                                <div class="pricing-table__checkbox">
+                                    <i class="fa-regular fa-square pricing-table__checkbox--unchecked"></i>
+                                    <i class="fa-solid fa-check pricing-table__checkbox--checked"></i>
+                                </div>
+                                <p class="m-0 py-3">Enim ad minim veniam quis nostrud</p>
+                            </div>
+                        </div>
+                        <div class="pricing-table__button d-flex align-items-center py-7">
+                            <button class="pricing-table__button-order d-flex align-items-center px-6 text-center">Order</button>
+                        </div>
+                    </div>
+                   
+                </div>
+
+                <!-- Pricing Table 2 -->
+                <div class="col-lg-4 col-md-6 col-sm-10 pt-11 px-0 d-flex flex-column pricing-table">
+                    <div class="pricing-table__top pricing-table__top--advanced">
+                        <div
+                            class="pricing-table__pricing d-flex flex-column justify-content-center align-items-center">
+                            <div class="pricing-table__price pricing-table__price--advanced">$199</div>
+                            <div class="pricing-table__period">/person</div>
+                            <div class="pricing-table__badge">
+                                <img class="pricing-table__badge-icon" src="/images/shape_1.svg" alt="New badge">
+                                <span class="pricing-table__badge-text">New</span>
+                            </div>
+                        </div>
+                        <div class="pricing-table__title d-flex flex-column gap-2 gap-xs-2 px-7 px-xs-7">
+                            <h1 class="pricing-table__main-title my-0">Advanced</h1>
+                            <h2 class="pricing-table__sub-title my-0">Price plan</h2>
+                            <p class="pricing-table__title-annotation my-0 p-1">
+                                This is the very best price/quantity advanced plan *
+                            </p>
+                        </div>
+                    </div>
+                    <div class="pricing-table__bottom">
+                        <div class="pricing-table__subtitle d-flex  flex-column gap-1 py-4 px-7 px-xs-7">
+                            <h3 class="pricing-table__subtitle-main my-0">Subtitle goes here</h3>
+                            <h4 class="pricing-table__subtitle-secondary my-0">Subtitle second line goes here lorem ipsum
+                                *</h4>
+                        </div>
+                        <div class="pricing-table__features">
+                            <div class="pricing-table__feature d-flex align-items-center gap-3 px-7 px-xs-7">
+                                <div class="pricing-table__checkbox">
+                                    <i class="fa-regular fa-square pricing-table__checkbox--unchecked"></i>
+                                    <i class="fa-solid fa-check pricing-table__checkbox--checked"></i>
+                                </div>
+                                <p class="m-0 py-3">Lorem ipsum dolor sit amet</p>
+                            </div>
+                            <div class="pricing-table__feature d-flex align-items-center gap-3 px-7 px-xs-7">
+                                <div class="pricing-table__checkbox">
+                                    <i class="fa-regular fa-square pricing-table__checkbox--unchecked"></i>
+                                    <i class="fa-solid fa-check pricing-table__checkbox--checked"></i>
+                                </div>
+                                <p class="m-0 py-3">Consectetur adipisicing elit sed do</p>
+                            </div>
+                            <div class="pricing-table__feature d-flex align-items-center gap-3 px-7 px-xs-7">
+                                <div class="pricing-table__checkbox">
+                                    <i class="fa-regular fa-square pricing-table__checkbox--unchecked"></i>
+                                    <i class="fa-solid fa-check pricing-table__checkbox--checked"></i>
+                                </div>
+                                <p class="m-0 py-3">Eiusmod tempor incididunt ut</p>
+                            </div>
+                            <div class="pricing-table__feature d-flex align-items-center gap-3 px-7 px-xs-7">
+                                <div class="pricing-table__checkbox">
+                                    <i class="fa-regular fa-square pricing-table__checkbox--unchecked"></i>
+                                    <i class="fa-solid fa-check pricing-table__checkbox--checked"></i>
+                                </div>
+                                <p class="m-0 py-3">Labore et dolore magna</p>
+                            </div>
+                            <div class="pricing-table__feature d-flex align-items-center gap-3 px-7 px-xs-7">
+                                <div class="pricing-table__checkbox">
+                                    <i class="fa-regular fa-square pricing-table__checkbox--unchecked"></i>
+                                    <i class="fa-solid fa-check pricing-table__checkbox--checked"></i>
+                                </div>
+                                <p class="m-0 py-3">Enim ad minim veniam quis nostrud</p>
+                            </div>
+                        </div>
+                        <div class="pricing-table__button d-flex align-items-center py-7">
+                            <button class="pricing-table__button-order d-flex align-items-center px-6 text-center">Order</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pricing Table 3 -->
+                <div class="col-lg-4 col-md-6 col-sm-10 pt-11 px-0 d-flex flex-column pricing-table">
+                    <div class="pricing-table__top pricing-table__top--life">
+                        <div
+                            class="pricing-table__pricing d-flex flex-column justify-content-center align-items-center">
+                            <div class="pricing-table__price pricing-table__price--life">$1999</div>
+                            <div class="pricing-table__period">/person</div>
+                        </div>
+                        <div class="pricing-table__title d-flex flex-column gap-2 gap-xs-2 px-7 px-xs-7">
+                            <h1 class="pricing-table__main-title my-0">Life</h1>
+                            <h2 class="pricing-table__sub-title my-0">Tariff</h2>
+                        </div>
+                    </div>
+                    <div class="pricing-table__bottom">
+                        <div class="pricing-table__subtitle d-flex  flex-column gap-1 py-4 px-7 px-xs-7">
+                            <h3 class="pricing-table__subtitle-main my-0">Subtitle goes here</h3>
+                            <h4 class="pricing-table__subtitle-secondary my-0">Subtitle second line goes here lorem ipsum
+                                *</h4>
+                        </div>
+                        <div class="pricing-table__features">
+                            <div class="pricing-table__feature d-flex align-items-center gap-3 px-7 px-xs-7">
+                                <div class="pricing-table__checkbox">
+                                    <i class="fa-regular fa-square pricing-table__checkbox--unchecked"></i>
+                                    <i class="fa-solid fa-check pricing-table__checkbox--checked"></i>
+                                </div>
+                                <p class="m-0 py-3">Lorem ipsum dolor sit amet</p>
+                            </div>
+                            <div class="pricing-table__feature d-flex align-items-center gap-3 px-7 px-xs-7">
+                                <div class="pricing-table__checkbox">
+                                    <i class="fa-regular fa-square pricing-table__checkbox--unchecked"></i>
+                                    <i class="fa-solid fa-check pricing-table__checkbox--checked"></i>
+                                </div>
+                                <p class="m-0 py-3">Consectetur adipisicing elit sed do</p>
+                            </div>
+                            <div class="pricing-table__feature d-flex align-items-center gap-3 px-7 px-xs-7">
+                                <div class="pricing-table__checkbox">
+                                    <i class="fa-regular fa-square pricing-table__checkbox--unchecked"></i>
+                                    <i class="fa-solid fa-check pricing-table__checkbox--checked"></i>
+                                </div>
+                                <p class="m-0 py-3">Eiusmod tempor incididunt ut</p>
+                            </div>
+                            <div class="pricing-table__feature d-flex align-items-center gap-3 px-7 px-xs-7">
+                                <div class="pricing-table__checkbox">
+                                    <i class="fa-regular fa-square pricing-table__checkbox--unchecked"></i>
+                                    <i class="fa-solid fa-check pricing-table__checkbox--checked"></i>
+                                </div>
+                                <p class="m-0 py-3">Labore et dolore magna</p>
+                            </div>
+                            <div class="pricing-table__feature d-flex align-items-center gap-3 px-7 px-xs-7">
+                                <div class="pricing-table__checkbox">
+                                    <i class="fa-regular fa-square pricing-table__checkbox--unchecked"></i>
+                                    <i class="fa-solid fa-check pricing-table__checkbox--checked"></i>
+                                </div>
+                                <p class="m-0 py-3">Enim ad minim veniam quis nostrud</p>
+                            </div>
+                        </div>
+                        <div class="pricing-table__button d-flex align-items-center py-7">
+                            <button class="pricing-table__button-order d-flex align-items-center px-6 text-center">Order</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
 </html>

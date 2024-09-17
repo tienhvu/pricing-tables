@@ -1,0 +1,105 @@
+.slider {
+  position: relative;
+  background-color: var(--dark-gray-blue);
+  color: #ffffff;
+}
+
+.slider__logo .fa-solid {
+  font-size: calc(9rem * var(--size-multiplier) * var(--size-multiplier-sub));
+  color: var(--light-blue);
+}
+
+.slider__title {
+  font-size: calc(4.375rem * var(--size-multiplier) * var(--size-multiplier-sub));
+  text-transform: uppercase;
+  text-align: center;
+  font-weight: 400;
+}
+
+.slider__title--sub {
+  font-weight: bold;
+}
+
+.slider__content {
+  font-size: calc(1.5rem * var(--size-multiplier) * var(--size-multiplier-sub));
+  font-family: "Source Sans 3", sans-serif;
+  font-weight: lighter;
+}
+
+.slider__button {
+  min-width: calc(225px * var(--size-multiplier));
+  font-size: calc(1.1875rem * var(--size-multiplier));
+  font-weight: bold;
+  text-transform: uppercase;
+  border-radius: 40px;
+  color: #ffffff;
+  background-color: transparent;
+  border: 2px solid #ffffff;
+}
+
+.slider__button:hover {
+  color: var(--light-blue);
+  border: 2px solid var(--light-blue);
+}
+
+.slider__arrow {
+  position: absolute;
+  top: 50%;
+  width: calc(50px * var(--size-multiplier) * var(--size-multiplier-sub));
+  height: calc(50px * var(--size-multiplier) * var(--size-multiplier-sub));
+  font-size: calc(1.5rem * var(--size-multiplier) * var(--size-multiplier-sub));
+  color: #ffffff;
+  border: none;
+  background-color: #212331;
+}
+
+.slider__arrow:hover {
+  background-color: var(--light-blue);
+  cursor: pointer;
+}
+
+.slider__arrow--prev {
+  left: 0;
+}
+
+.slider__arrow--next {
+  right: 0;
+}
+
+.slider__indicator {
+  position: relative;
+  width: calc(1.5rem*var(--size-multiplier));
+  height: calc(1.5rem*var(--size-multiplier));
+  cursor: pointer;
+  top: 4px;
+}
+
+.slider__indicator::before,
+.slider__indicator::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+}
+
+.slider__indicator::before {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 2px solid white;
+  box-sizing: border-box;
+
+}
+
+.slider__indicator::after {
+  top: 50%;
+  left: 50%;
+  width: calc(0.9rem*var(--size-multiplier));
+  height: calc(0.9rem*var(--size-multiplier));
+  background-color: transparent;
+  transform: translate(-50%, -50%);
+}
+
+.slider__indicator--current::after {
+  background-color: var(--light-blue);
+}
