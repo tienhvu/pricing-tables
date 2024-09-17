@@ -40,7 +40,7 @@
   border-radius: 40px;
   color: #ffffff;
   background-color: transparent;
-  border: 3px solid #ffffff;
+  border: 2px solid #ffffff;
 }
 
 .slider__button:hover {
@@ -51,9 +51,9 @@
 .slider__arrow {
   position: absolute;
   top: 50%;
-  width: calc(50px * var(--size-multiplier));
-  height: calc(50px * var(--size-multiplier));
-  font-size: calc(1.5rem * var(--size-multiplier));
+  width: calc(50px * var(--size-multiplier) * var(--size-multiplier-sub));
+  height: calc(50px * var(--size-multiplier) * var(--size-multiplier-sub));
+  font-size: calc(1.5rem * var(--size-multiplier) * var(--size-multiplier-sub));
   color: #ffffff;
   border: none;
   background-color: #212331;
@@ -74,8 +74,8 @@
 
 .slider__indicator {
   position: relative;
-  width: 1.5rem;
-  height: 1.5rem;
+  width: calc(1.5rem*var(--size-multiplier));
+  height: calc(1.5rem*var(--size-multiplier));
   cursor: pointer;
   top: 4px;
 }
@@ -100,8 +100,8 @@
 .slider__indicator::after {
   top: 50%;
   left: 50%;
-  width: 0.9rem;
-  height: 0.9rem;
+  width: calc(0.9rem*var(--size-multiplier));
+  height: calc(0.9rem*var(--size-multiplier));
   background-color: transparent;
   transform: translate(-50%, -50%);
 }
@@ -109,4 +109,3 @@
 .slider__indicator--current::after {
   background-color: var(--light-blue);
 }
-
