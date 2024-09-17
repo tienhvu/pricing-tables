@@ -1,0 +1,27 @@
+.ad-block {
+    background-color: #484b58;
+}
+
+.ad-block__title {
+    font-size: calc(6.25rem*var(--size-multiplier)*var(--size-multiplier-sub));
+    color: #ececed;
+    text-transform: uppercase;
+    word-spacing: 1rem;
+}
+
+.ad-block__text {
+    font-family:  "Source Sans 3", sans-serif;
+    font-size: calc(1.5rem*var(--size-multiplier));
+    font-weight: lighter;
+    color: #ffffff;
+}
+
+.ad-block__button--purchase {
+    font-size: calc(1.185rem*var(--size-multiplier));
+    font-weight: bold;
+    text-transform: uppercase;
+    color: var(--light-blue);
+    border: 3px solid var(--light-blue);
+    border-radius: 35px;
+    background-color: inherit;
+}
