@@ -1,18 +1,21 @@
 .pricing-table {
     font-family:  "Source Sans 3", sans-serif;
-    border: 1px solid #dfe5e7;
 }
 
 .pricing-table__top {
     position: relative;
     height: 272px;
-    margin: -1px;
+}
+
+.pricing-table__bottom {
+    border: 1px solid #dfe5e7;
 }
 
 .pricing-table__pricing {
-    position: relative;
-    width: 120px;
-    height: 120px;
+    position: absolute;
+    left: 44px;
+    width: 122px;
+    height: 122px;
     border-radius: 50%;
     background-color: #393d50;
     transform: translateY(-50%);
@@ -31,19 +34,20 @@
 
 .pricing-table__title {
     position: absolute;
-    bottom: 48px;
+    bottom: 40px;
     font-size: calc(2.25rem*var(--size-multiplier));
     text-transform: uppercase;
     color: #ffffff;
     font-family: "Montserrat", sans-serif;
+    line-height: initial;
 }
 
-.pricing-table__title-main {
+.pricing-table__main-title {
     font-size: inherit;
     font-weight: bold;
 }
 
-.pricing-table__title-sub {
+.pricing-table__sub-title {
     font-size: inherit;
     font-weight: 300;
 }
@@ -71,7 +75,6 @@
     color: #5f727f;
 }
 
-
 .pricing-table__feature:nth-child(even) {
     background-color: #ffffff;
 }
@@ -94,26 +97,31 @@
     font-size: 1rem;
 }
 
-
 .pricing-table__button {
-    display: inline-block;
+    position: relative;
+    left: 48px;
+}
+
+.pricing-table__button-order{
+    border: none;
+    line-height: normal;
     width: 150px;
+    height: 50px;
     background-color: #b6c6c9;
     color: #ffffff;
-    text-decoration: none;
     font-size: 1.1875rem;
     text-transform: uppercase;
     font-weight: bold;
-    border-radius: 40px;
+    border-radius: 35px;
     font-family: "Montserrat", sans-serif;
     order: 2;
 }
 
-.pricing-table__button:hover {
+.pricing-table__button-order:hover {
     background-color: #2c2e3d;
 }
 
-.pricing-table__button:hover + .pricing-table__top .pricing-table__pricing {
+.pricing-table__button-order:hover + .pricing-table__top .pricing-table__pricing {
     background-color: #2c2e3d;
 }
 
@@ -154,4 +162,9 @@
 
 .pricing-table__price--life {
     color: #9986ff;
+}
+
+.test {
+    height: 200px;
+    background-color: #1aa3e1;
 }
