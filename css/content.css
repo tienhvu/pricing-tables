@@ -37,8 +37,8 @@
 }
 
 .pricing-table__title {
-    height: 272px;
-    font-size: calc(2.25rem*var(--size-multiplier));
+    min-height: 272px;
+    font-size: calc(2.25rem*var(--size-multiplier)*var(--size-multiplier-sub));
     text-transform: uppercase;
     color: #ffffff;
     font-family: "Montserrat", sans-serif;
