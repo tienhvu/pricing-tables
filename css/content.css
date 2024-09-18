@@ -1,11 +1,18 @@
-.pricing-table {
-    font-family:  "Source Sans 3", sans-serif;
+.introduction__title {
+    font-size: calc(3.125rem*var(--size-multiplier));
+    color: #3c3950;
+    text-transform: uppercase;
+    font-weight: normal;
 }
 
+.introduction__title span {
+    font-weight: bold;
+}
 
-.pricing-table__bottom {
-    position: relative;
-    border: 1px solid #dfe5e7;
+.pricing-table, .introduction__text {
+    font-family:  "Source Sans 3", sans-serif;
+    line-height: normal;
+    font-size: calc(1rem*var(--size-multiplier));
 }
 
 .pricing-table__pricing {
@@ -52,6 +59,11 @@
     font-size: 0.875rem;
     font-family:  "Source Sans 3", sans-serif;
     text-transform: none;
+}
+
+.pricing-table__bottom {
+    position: relative;
+    border: 1px solid #dfe5e7;
 }
 
 .pricing-table__subtitle-main {
