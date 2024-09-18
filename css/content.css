@@ -2,10 +2,6 @@
     font-family:  "Source Sans 3", sans-serif;
 }
 
-.pricing-table__top {
-    position: relative;
-    height: 272px;
-}
 
 .pricing-table__bottom {
     position: relative;
@@ -34,8 +30,7 @@
 }
 
 .pricing-table__title {
-    position: absolute;
-    bottom: 40px;
+    height: 272px;
     font-size: calc(2.25rem*var(--size-multiplier));
     text-transform: uppercase;
     color: #ffffff;
@@ -137,15 +132,15 @@
     transform: translate(198%, -245%);
 }
 
-.pricing-table__top--basic {
+.pricing-table__title--basic {
     background-color: var(--light-blue);
 }
 
-.pricing-table__top--advanced {
+.pricing-table__title--advanced {
     background-color: var(--sky-blue-dark);
 }
 
-.pricing-table__top--life {
+.pricing-table__title--life {
     background-color: var(--purple-medium);
 }
 
