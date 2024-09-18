@@ -72,31 +72,19 @@
   height: calc(1.5rem*var(--size-multiplier));
   cursor: pointer;
   top: 4px;
+  border: 2px solid white;
+  box-sizing: border-box;
+  border-radius: 50%;
 }
 
-.slider__indicator::before,
 .slider__indicator::after {
   content: '';
   position: absolute;
   border-radius: 50%;
-}
-
-.slider__indicator::before {
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border: 2px solid white;
-  box-sizing: border-box;
-
-}
-
-.slider__indicator::after {
   top: 50%;
   left: 50%;
-  width: calc(0.9rem*var(--size-multiplier));
-  height: calc(0.9rem*var(--size-multiplier));
-  background-color: transparent;
+  width: calc(0.75rem*var(--size-multiplier));
+  height: calc(0.75rem*var(--size-multiplier));
   transform: translate(-50%, -50%);
 }
 
