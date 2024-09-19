@@ -34,12 +34,12 @@
   border-radius: 40px;
   color: #ffffff;
   background-color: transparent;
-  border: 2px solid #ffffff;
+  border: 3px solid #ffffff;
 }
 
 .slider__button:hover {
   color: var(--light-blue);
-  border: 2px solid var(--light-blue);
+  border: 3px solid var(--light-blue);
 }
 
 .slider__arrow {

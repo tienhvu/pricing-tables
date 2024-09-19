@@ -17,4 +17,5 @@ html {
     font-family: "Montserrat", sans-serif;
     font-optical-sizing: auto;
     box-sizing: border-box;
+    line-height: inherit;
 }
