@@ -348,6 +348,15 @@
   .pb-xs-9 { padding-bottom: calc(72px*var(--size-multiplier))!important;}
   .pb-xs-10 { padding-bottom: calc(96px*var(--size-multiplier))!important;}
   .pb-xs-11 { padding-bottom: calc(112px*var(--size-multiplier))!important;}
+
+  .gap-xs-1 { gap: 0!important; }
+  .gap-xs-2 { gap: 0.25rem!important; }
+  .gap-xs-3 { gap: 0.5rem!important; } 
+  .gap-xs-4 { gap: 1rem!important; } 
+  .gap-xs-5 { gap: 1.5rem!important; }
+  .gap-xs-6 { gap: 2rem!important; }
+  .gap-xs-7 { gap: 2.5rem!important; }
+
 }
 
 .m-0 { margin: 0; }
