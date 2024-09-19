@@ -50,7 +50,7 @@
     text-transform: none;
 }
 
-.pricing-table__bottom {
+.pricing-table__content {
     position: relative;
     box-shadow: 0 0 0 1px #dfe5e7;
 }
@@ -70,8 +70,11 @@
 .pricing-table__feature {
     font-size: calc(1rem*var(--size-multiplier));
     color: #5f727f;
+    padding-left: 48px;
+    padding-right: 48px;
+    gap: 1rem;
 }
-
+ 
 .pricing-table__feature:nth-child(even) {
     background-color: #ffffff;
 }
