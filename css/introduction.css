@@ -1,0 +1,17 @@
+.introduction__title {
+    font-size: calc(3.125rem*var(--size-multiplier));
+    color: #3c3950;
+    text-transform: uppercase;
+    font-weight: normal;
+}
+
+.introduction__title span {
+    font-weight: bold;
+}
+
+.introduction__text {
+    font-family:  "Source Sans 3", sans-serif;
+    line-height: normal;
+    color: #5f727f;
+    font-size: calc(1rem*var(--size-multiplier));
+}
