@@ -3,6 +3,7 @@
     line-height: normal;
     color: #5f727f;
     font-size: calc(1rem*var(--size-multiplier));
+    width: 100%;
 }
 
 .pricing-table__pricing {
@@ -32,6 +33,8 @@
     text-transform: uppercase;
     color: #ffffff;
     font-family: "Montserrat", sans-serif;
+    position: relative;
+    width: 100%;
 }
 
 .pricing-table__main-title {
