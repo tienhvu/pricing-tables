@@ -2,6 +2,8 @@
   --light-gray-blue: #99a9b5;
   --dark-gray-blue: #2b2d3d;
   --light-blue: #00bcd4;
+  --sky-blue-dark: #1c94ca;
+  --purple-medium: #7264bd;
   --size-multiplier: 1;
   --size-multiplier-sub: 1;
 }
@@ -15,4 +17,5 @@ html {
     font-family: "Montserrat", sans-serif;
     font-optical-sizing: auto;
     box-sizing: border-box;
+    line-height: inherit;
 }
