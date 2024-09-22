@@ -25,3 +25,8 @@
     border-radius: 35px;
     background-color: inherit;
 }
+
+.ad-block__button--purchase:hover {
+    cursor: pointer;
+    opacity: 0.8;
+}

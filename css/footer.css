@@ -75,12 +75,16 @@ footer {
     font-size: 0.875rem;
 }
 
+.footer-item__post-meta a {
+    transition: color 0.3s ease;
+}
+
 .footer-item__post-time:hover, .footer-item__post-comment:hover {
     color: var(--light-blue);
     cursor: pointer;
 }
 
-.footer-item__useful a{
+.footer-item__useful a {
     position: relative;
     padding-left: 12px;
     cursor: pointer;
@@ -133,7 +137,7 @@ footer {
     position: relative;
 }
 
-.footer-item__email-name label{
+.footer-item__email-name label {
     position: absolute;
     top: 34%;
     right: 1rem;
