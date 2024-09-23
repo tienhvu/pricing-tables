@@ -184,10 +184,6 @@ footer {
     transition: color 0.3s ease;
 }
 
-.footer-item__letter-mail__button:hover {
-    color: #ffffff;
-    background-color: var(--light-blue);
-}
 
 .footer-item__email-message {
     background-color: transparent;
@@ -213,7 +209,7 @@ footer {
     transition: color 0.3s ease;
 }
 
-.footer-item__email-button:hover {
+.footer-item__email-button:hover, .footer-item__letter-mail__button:hover {
     color: #ffffff;
     background-color: var(--light-blue);
 }
