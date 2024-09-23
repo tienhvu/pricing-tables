@@ -220,7 +220,6 @@ footer {
 
 .footer-item__project, .footer-item__flickr-feed {
     flex: 0 1 calc((100% - 20px) / 3);
-    max-width: 80px;
     aspect-ratio: 1 / 1;
     min-width: 0;
 }
