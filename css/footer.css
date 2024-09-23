@@ -186,8 +186,7 @@ footer {
 
 .footer-item__letter-mail__button:hover {
     color: #ffffff;
-    background-color: #5a6375;
-    border-color: #99a9b5;
+    background-color: var(--light-blue);
 }
 
 .footer-item__email-message {
@@ -216,8 +215,7 @@ footer {
 
 .footer-item__email-button:hover {
     color: #ffffff;
-    background-color: #5a6375;
-    border-color: #99a9b5;
+    background-color: var(--light-blue);
 }
 
 .footer-item__projects-list, .footer-item__flickr-list {
