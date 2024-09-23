@@ -25,7 +25,7 @@
 
 <body>
     <header class="header">
-        <div class="container d-flex justify-content-between align-items-center flex-wrap">
+        <div class="container d-flex justify-content-between align-items-center flex-wrap justify-content-xs-center">
             <a class="header__logo header__link d-flex align-items-center" href="">
                 <img class="header__logo-image" src="/images/logo.png" alt="Logo">
                 <p class="header__logo-brand">Thegem</p>
@@ -343,17 +343,22 @@
 
     <!-- Footer -->
     <footer class="footer-top">
-        <footer class="container">
+        <div class="container">
             <div class="row pt-2 pt-xs-2 pb-10">
                 <!-- Column 1 -->
-                <div class="col-xl-3 col-lg-6 col-md-6 col-sm-10 pt-11  footer-item">
-                    <div class="footer-item__logo d-flex flex-column pb-8 pb-xs-8">
-                        <div class="footer-item__logo-img pb-5"> <img src="/images/logo_footer.png" alt="Logo footer">
+                <div class="col-xl-3 col-lg-6 col-md-12 col-sm-12 pt-11 footer-item">
+                    <!-- Logo section -->
+                    <div class="col-12 p-0">
+                        <div class="footer-item__logo d-flex flex-column pb-8 pb-xs-8">
+                            <div class="footer-item__logo-img pb-5"> <img src="/images/logo_footer.png" alt="Logo footer">
+                            </div>
+                            <div class="footer-item__logo-text"> Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet.
+                                Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem
+                                nibh id elit. Duis sed odio </div>
                         </div>
-                        <div class="footer-item__logo-text"> Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet.
-                            Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem
-                            nibh id elit. Duis sed odio </div>
                     </div>
+                    <!-- Contact section -->
+                   <div class="col-12 p-0">
                     <div class="footer-item__contact pb-1">
                         <h1 class="m-0 pb-1">Contact</h1>
                         <div class="footer-item__contact-address d-flex flex-column  pt-5 pb-4 gap-1">
@@ -379,107 +384,121 @@
                             <a class="is-highlighted">www.codex-themes.com</a>
                         </div>
                     </div>
+                   </div>
                 </div>
                     <!-- Column 2 -->
-                <div class="col-xl-3 col-lg-6 col-md-6 col-sm-10 pt-11 footer-item">
-                    <div class="footer-item__posts pb-7 pb-xs-7">
-                        <h1 class="m-0 pb-5">Recent posts</h1>
-                            <!-- Post 1 -->
-                        <div class="footer-item__post d-flex align-items-center gap-2 py-2-plus">
-                            <div class="footer-item__post-avt avt-1"></div>
-                            <div class="footer-item__post-content d-flex flex-column gap-1 px-1">
-                                <div class="footer-item__post-text"> Proin gravida nibh vel velit auctor aliquet
-                                    aenean abcdsacsacdsc fdjagnkagnklgblakgb </div>
-                                <div class="footer-item__post-meta d-flex justify-content-between">
-                                    <a class="footer-item__post-time">27 Dec 2015</a>
-                                    <a class="footer-item__post-comment"> <i class="fa-solid fa-comments pr-1"></i>
-                                        <span>0</span> </a>
+                <div class="col-xl-3 col-lg-6 col-md-12 col-sm-12 pt-11 footer-item">
+                    <!-- Recent post section -->
+                    <div class="col-12 p-0">
+                        <div class="footer-item__posts pb-7 pb-xs-7">
+                            <h1 class="m-0 pb-5">Recent posts</h1>
+                                <!-- Post 1 -->
+                            <div class="footer-item__post d-flex align-items-center gap-2 py-2-plus">
+                                <div class="footer-item__post-avt avt-1"></div>
+                                <div class="footer-item__post-content d-flex flex-column gap-1 px-1">
+                                    <div class="footer-item__post-text"> Proin gravida nibh vel velit auctor aliquet
+                                        aenean abcdsacsacdsc fdjagnkagnklgblakgb </div>
+                                    <div class="footer-item__post-meta d-flex justify-content-between">
+                                        <a class="footer-item__post-time">27 Dec 2015</a>
+                                        <a class="footer-item__post-comment"> <i class="fa-solid fa-comments pr-1"></i>
+                                            <span>0</span> </a>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="divider"></div>
-                            <!-- Post 2 -->
-                        <div class="footer-item__post d-flex align-items-center gap-2 py-2-plus">
-                            <div class="footer-item__post-avt avt-2"></div>
-                            <div class="footer-item__post-content d-flex flex-column gap-1 px-1">
-                                <div class="footer-item__post-text"> Proin gravida nibh vel velit auctor aliquet
-                                    aenean abcdsacsacdsc fdjagnkagnklgblakgb </div>
-                                <div class="footer-item__post-meta d-flex justify-content-between">
-                                    <a class="footer-item__post-time">27 Dec 2015</a>
-                                    <a class="footer-item__post-comment is-highlighted"> <i class="fa-solid fa-comments pr-1"></i>
-                                        <span>14</span> </a>
+                            <div class="divider"></div>
+                                <!-- Post 2 -->
+                            <div class="footer-item__post d-flex align-items-center gap-2 py-2-plus">
+                                <div class="footer-item__post-avt avt-2"></div>
+                                <div class="footer-item__post-content d-flex flex-column gap-1 px-1">
+                                    <div class="footer-item__post-text"> Proin gravida nibh vel velit auctor aliquet
+                                        aenean abcdsacsacdsc fdjagnkagnklgblakgb </div>
+                                    <div class="footer-item__post-meta d-flex justify-content-between">
+                                        <a class="footer-item__post-time">27 Dec 2015</a>
+                                        <a class="footer-item__post-comment is-highlighted"> <i class="fa-solid fa-comments pr-1"></i>
+                                            <span>14</span> </a>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="divider"></div>
-                            <!-- Post 3 -->
-                        <div class="footer-item__post d-flex align-items-center gap-2 py-2-plus">
-                            <div class="footer-item__post-avt avt-3"></div>
-                            <div class="footer-item__post-content d-flex flex-column gap-1 px-1">
-                                <div class="footer-item__post-text"> Proin gravida nibh vel velit auctor aliquet
-                                    aenean abcdsacsacdsc fdjagnkagnklgblakgb </div>
-                                <div class="footer-item__post-meta d-flex justify-content-between">
-                                    <a class="footer-item__post-time">27 Dec 2015</a>
-                                    <a class="footer-item__post-comment"> <i class="fa-solid fa-comments pr-1"></i>
-                                        <span>0</span> </a>
+                            <div class="divider"></div>
+                                <!-- Post 3 -->
+                            <div class="footer-item__post d-flex align-items-center gap-2 py-2-plus">
+                                <div class="footer-item__post-avt avt-3"></div>
+                                <div class="footer-item__post-content d-flex flex-column gap-1 px-1">
+                                    <div class="footer-item__post-text"> Proin gravida nibh vel velit auctor aliquet
+                                        aenean abcdsacsacdsc fdjagnkagnklgblakgb </div>
+                                    <div class="footer-item__post-meta d-flex justify-content-between">
+                                        <a class="footer-item__post-time">27 Dec 2015</a>
+                                        <a class="footer-item__post-comment"> <i class="fa-solid fa-comments pr-1"></i>
+                                            <span>0</span> </a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="footer-item__usefuls">
-                        <h1 class="m-0 pb-4">Useful links</h1>
-                        <div class="footer-item__useful d-flex flex-column m-0 p-0 pt-1">
-                            <a class="py-2">General Information For Users</a>
-                            <div class="divider"></div>
-                            <a class="py-2">Interactive Fairy Tales</a>
-                            <div class="divider"></div>
-                            <a class="py-2">Official Storybook Maker Website</a>
-                            <div class="divider"></div>
-                            <a class="py-2">Everyday Mathematics Links</a>
-                            <div class="divider"></div>
-                            <a class="py-2">Basic Knowledge and Experience</a>
+                    <!-- Useful links section -->
+                    <div class="col-12 p-0">
+                        <div class="footer-item__usefuls">
+                            <h1 class="m-0 pb-4">Useful links</h1>
+                            <div class="footer-item__useful d-flex flex-column m-0 p-0 pt-1">
+                                <a class="py-2">General Information For Users</a>
+                                <div class="divider"></div>
+                                <a class="py-2">Interactive Fairy Tales</a>
+                                <div class="divider"></div>
+                                <a class="py-2">Official Storybook Maker Website</a>
+                                <div class="divider"></div>
+                                <a class="py-2">Everyday Mathematics Links</a>
+                                <div class="divider"></div>
+                                <a class="py-2">Basic Knowledge and Experience</a>
+                            </div>
                         </div>
                     </div>
                 </div>
                 
                 <!-- Column 3 -->
-                <div class="col-xl-3 col-lg-6 col-md-6 col-sm-10 pt-11 footer-item">
-                    <div class="footer-item__email pb-9 pb-xs-9 d-flex flex-column gap-3">
-                        <h1 class="m-0 pb-4">Email us</h1>
-                        <div class="footer-item__email-name d-flex pt-1">
-                            <input type="text" name="name" id="name" placeholder="Your name" class="py-2 pl-3 pr-5">
-                            <label for="name"> <img src="/images/logo_user.png" alt=""></label>
+                <div class="col-xl-3 col-lg-6 col-md-12 col-sm-12 pt-11 footer-item">
+                    <!-- Email us section -->
+                     <div class="col-12 p-0">
+                        <div class="footer-item__email pb-9 pb-xs-9 d-flex flex-column gap-3">
+                            <h1 class="m-0 pb-4">Email us</h1>
+                            <div class="footer-item__email-name d-flex pt-1">
+                                <input type="text" name="name" id="name" placeholder="Your name" class="py-2 pl-3 pr-5">
+                                <label for="name"> <img src="/images/logo_user.png" alt=""></label>
+                                </div>
+                            <div class="footer-item__email-mail d-flex">
+                                <input type="email" name="email" id="email" placeholder="Your email" autocomplete="off" class="py-2 pl-3 pr-5">
+                                <label for="email" class="d-flex align-items-center"> <i class="fa-solid fa-envelope"></i></label>
                             </div>
-                        <div class="footer-item__email-mail d-flex">
-                            <input type="email" name="email" id="email" placeholder="Your email" autocomplete="off" class="py-2 pl-3 pr-5">
-                            <label for="email" class="d-flex align-items-center"> <i class="fa-solid fa-envelope"></i></label>
+                            <textarea class="footer-item__email-message py-2 px-3" name="message" id="message"
+                                title="message" placeholder="Your message"></textarea>
+                                
+                                <button class="footer-item__email-button py-2-plus" title="Send message">Send message</button>
                         </div>
-                        <textarea class="footer-item__email-message py-2 px-3" name="message" id="message"
-                            title="message" placeholder="Your message"></textarea>
-                            
-                            <button class="footer-item__email-button py-2-plus" title="Send message">Send message</button>
-                    </div>
-
-                    <div class="footer-item__projects">
-                        <h1 class="m-0 pb-6">Projects / clients ?</h1>
-                        <div class="footer-item__projects-list d-flex flex-wrap justify-content-center pt-1 pb-2">
-                            <div class="footer-item__project"></div>
-                            <div class="footer-item__project"></div>
-                            <div class="footer-item__project"></div>
-                            <div class="footer-item__project"></div>
-                            <div class="footer-item__project"></div>
-                            <div class="footer-item__project"></div>
+                     </div>
+                     <!-- Projects section -->
+                     <div class="col-12 p-0">
+                        <div class="footer-item__projects">
+                            <h1 class="m-0 pb-6">Projects / clients ?</h1>
+                            <div class="footer-item__projects-list d-flex flex-wrap justify-content-center pt-1 pb-2">
+                                <div class="footer-item__project"></div>
+                                <div class="footer-item__project"></div>
+                                <div class="footer-item__project"></div>
+                                <div class="footer-item__project"></div>
+                                <div class="footer-item__project"></div>
+                                <div class="footer-item__project"></div>
+                            </div>
+                            <div class="footer__indicators d-flex gap-2 justify-content-center pt-1">
+                                <a class="footer__indicator footer__indicator--current"></a>
+                                <a class="footer__indicator"></a>
+                                <a class="footer__indicator"></a>
+                            </div>
                         </div>
-                        <div class="footer__indicators d-flex gap-2 justify-content-center pt-1">
-                            <a class="footer__indicator footer__indicator--current"></a>
-                            <a class="footer__indicator"></a>
-                            <a class="footer__indicator"></a>
-                        </div>
-                    </div>
+                     </div>
                 </div>
                 
                 <!-- Column 4 -->
-                <div class="col-xl-3 col-lg-6 col-md-6 col-sm-10 pt-11 footer-item">
+                <div class="col-xl-3 col-lg-6 col-md-12 col-sm-12 pt-11 footer-item">
+                    <!-- Flickr Feed section -->
+                    <div class="col-12 p-0">
                         <div class="footer-item__flickr">
                             <h1 class="m-0 pb-6">Flickr feed</h1>
                             <div class="footer-item__flickr-list d-flex flex-wrap justify-content-center pt-1">
@@ -494,35 +513,38 @@
                                 <div class="footer-item__flickr-feed"></div>
                             </div>
                         </div>
-
-                    <div class="footer-item__letters pb-9 pb-xs-9 d-flex flex-column gap-3"></div>
-                        <h1 class="m-0 pb-6">Newsletter</h1>
-                        <p class="footer-item__letter-content m-0 pb-6">
-                        Subscribe to our MailChimp newsletter and stay up to date with
-                            all events coming straight in your mailbox:
-                        </p>
-                        <div class="footer-item__letter-mail d-flex mb-3">
-                            <input type="email" name="letter-email" id="letter-email" placeholder="Your email address" autocomplete="off" class="py-2 pl-3 pr-5">
-                            <a class="footer-item__letter-mail__button d-flex align-items-center py-2 px-3 " href="#" title="Send letter mail">
-                                <i class="fa-solid fa-chevron-right"></i>
-                            </a>
-                        </div>
-                        <div class="footer-item__letter-text"><span class="is-highlighted">*</span> Personal information will be encrypted</div>
                     </div>
+                    <!-- Newsletter section -->
+                    <div class="col-12 p-0">
+                        <div class="footer-item__letters pb-9 pb-xs-9 d-flex flex-column gap-3"></div>
+                            <h1 class="m-0 pb-6">Newsletter</h1>
+                            <p class="footer-item__letter-content m-0 pb-6">
+                            Subscribe to our MailChimp newsletter and stay up to date with
+                                all events coming straight in your mailbox:
+                            </p>
+                            <div class="footer-item__letter-mail d-flex mb-3">
+                                <input type="email" name="letter-email" id="letter-email" placeholder="Your email address" autocomplete="off" class="py-2 pl-3 pr-5">
+                                <a class="footer-item__letter-mail__button d-flex align-items-center py-2 px-3 " href="#" title="Send letter mail">
+                                    <i class="fa-solid fa-chevron-right"></i>
+                                </a>
+                            </div>
+                            <div class="footer-item__letter-text"><span class="is-highlighted">*</span> Personal information will be encrypted</div>
+                        </div>
+                </div>
             </div>
-        </footer>
+        </div>
     </footer>
     <footer class="footer-bottom">
         <div class="container">
             <div class="row py-6 footer__bar gap-3 justify-content-between">
-                <div class="col-xl-3 col-lg-5 footer__bar-copyright"> © Copyright 2015 <a class="is-highlighted">CodexThemes</a> </div>
-                <div class="col-xl-5 col-lg-5 footer__bar-menu">
+                <div class="col-xl-3 col-lg-12 footer__bar-copyright text-center"> © Copyright 2015 <a class="is-highlighted">CodexThemes</a> </div>
+                <div class="col-xl-5 col-lg-12 footer__bar-menu text-center">
                     <a class="footer__bar-menu__item">Support</a>
                     <a class="footer__bar-menu__item">Contact us</a>
                     <a class="footer__bar-menu__item">Disclaimer</a>
                     <a class="footer__bar-menu__item">Privacy Policy</a>
                 </div>
-                <div class="col-xl-2 col-lg-5 footer__bar-social d-flex align-items-center gap-3 pr-0">
+                <div class="col-xl-3 col-lg-12 footer__bar-social d-flex align-items-center justify-content-center justify-content-xl-end gap-3">
                     <a href="" title="twitter"><i class="fa-brands fa-twitter"></i></a>
                     <a href="" title="facebook"><i class="fa-brands fa-facebook-f"></i></a>
                     <a href="" title="linkedin"><i class="fa-brands fa-linkedin-in"></i></a>

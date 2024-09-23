@@ -2,7 +2,6 @@
     --columns: 12;
     --gap: 32px;
     --xs-breakpoint: 480px;
-    --xs-breakpoint: 480px;
     --sm-breakpoint: 576px;
     --md-breakpoint: 768px;
     --lg-breakpoint: 992px;
@@ -226,6 +225,7 @@
 @media (min-width: 1200px) {
     .flex-xl-row { flex-direction: row; }
     .flex-xl-column { flex-direction: column; }
+    .justify-content-xl-end { justify-content: flex-end;}
 }
 
 /* Margin and Padding utilities */
@@ -358,6 +358,10 @@
   .gap-xs-6 { gap: 2rem!important; }
   .gap-xs-7 { gap: 2.5rem!important; }
 
+}
+
+@media (max-width: 305px) {
+  .justify-content-xs-center { justify-content: center!important;}
 }
 
 .m-0 { margin: 0; }
