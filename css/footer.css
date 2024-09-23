@@ -71,8 +71,19 @@ footer {
     height: 4.375rem;
     width: 4.375rem;
     border-radius: 50%;
-    background-color: var(--footer-main-color);
     flex-shrink: 0;
+}
+
+.avt-1 {
+    background-color: #99a9b5;
+}
+
+.avt-2 {
+    background-color: #4b565d;
+}
+
+.avt-3 {
+    background-color: #63707a;
 }
 
 .footer-item__post-text {
@@ -93,10 +104,6 @@ footer {
 .footer-item__post-time {
     color: var(--light-blue);
     cursor: pointer;
-}
-
-.footer-item__post-time:hover {
-    text-decoration: underline;
 }
 
 .footer-item__post-comment:hover {
@@ -179,7 +186,8 @@ footer {
 
 .footer-item__letter-mail__button:hover {
     color: #ffffff;
-    outline: 2px solid var(--light-blue);
+    background-color: #5a6375;
+    border-color: #99a9b5;
 }
 
 .footer-item__email-message {
@@ -208,7 +216,8 @@ footer {
 
 .footer-item__email-button:hover {
     color: #ffffff;
-    border: 1px solid var(--light-blue);
+    background-color: #5a6375;
+    border-color: #99a9b5;
 }
 
 .footer-item__projects-list, .footer-item__flickr-list {
@@ -260,6 +269,8 @@ footer {
     height: 14px;
     background-color: #394050;
     margin-right: 4px;
+    text-decoration: none;
+    cursor: pointer;
 }
 
 .footer__indicator--current {
