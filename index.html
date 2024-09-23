@@ -12,6 +12,8 @@
     <link rel="stylesheet" href="/css/introduction.css">
     <link rel="stylesheet" href="/css/pricing-tables.css">
     <link rel="stylesheet" href="/css/ad-block.css">
+    <link rel="stylesheet" href="/css/footer.css">
+    <link rel="icon" type="image/x-icon" href="/images/logo.png">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
         rel="stylesheet">
@@ -21,10 +23,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 </head>
 
-
 <body>
     <header class="header">
-        <div class="container d-flex justify-content-between align-items-center flex-wrap justify-content-xs-around">
+        <div class="container d-flex justify-content-between align-items-center flex-wrap justify-content-xs-center">
             <a class="header__logo header__link d-flex align-items-center" href="">
                 <img class="header__logo-image" src="/images/logo.png" alt="Logo">
                 <p class="header__logo-brand">Thegem</p>
@@ -68,7 +69,7 @@
     </header>
 
     <div class="slider">
-        <div class="container d-flex flex-column align-items-center pt-11 pb-6 pt-xs-7 pb-xs-4 justify-content-xs-around">
+        <div class="container d-flex flex-column align-items-center pt-11 pb-6 pt-xs-7 pb-xs-4">
             <div class="col-lg-10 col-sm-12 text-center px-0">
                 <div class="slider__logo pt-3 pb-9 pt-xs-3 pb-xs-5">
                     <i class="fa-solid fa-list-ul"></i>
@@ -321,13 +322,17 @@
                 </div>
                 <div class="ad-block__text text-justify pt-1 pb-9 pt-xs-1 pb-xs-9">
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                     sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                      Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                       Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                        Excepteur sint occaecat cupidatat non proident,
-                         sunt in culpa qui officia deserunt mollit anim id est laborum.
-                          Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam,
-                           eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam 
+                    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                    consequat.
+                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+                    pariatur.
+                    Excepteur sint occaecat cupidatat non proident,
+                    sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium,
+                    totam rem aperiam,
+                    eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+                    Nemo enim ipsam
                 </div>
                 <div class="ad-block__button pb-10 pt-3 pt-xs-3 pb-xs-6">
                     <button class="ad-block__button--purchase px-4 py-2">Purchase now</button>
@@ -335,5 +340,226 @@
             </div>
         </div>
     </div>
+
+    <!-- Footer -->
+    <footer class="footer-top">
+        <div class="container">
+            <div class="row pt-2 pt-xs-2 pb-10">
+                <!-- Column 1 -->
+                <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 pt-11 footer-item">
+                    <!-- Logo section -->
+                    <div class="col-12 p-0">
+                        <div class="footer-item__logo d-flex flex-column pb-8 pb-xs-8">
+                            <div class="footer-item__logo-img pb-5"> <img src="/images/logo_footer.png" alt="Logo footer">
+                            </div>
+                            <div class="footer-item__logo-text"> Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet.
+                                Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem
+                                nibh id elit. Duis sed odio </div>
+                        </div>
+                    </div>
+                    <!-- Contact section -->
+                   <div class="col-12 p-0">
+                    <div class="footer-item__contact pb-1">
+                        <h1 class="m-0 pb-1">Contact</h1>
+                        <div class="footer-item__contact-address d-flex flex-column  pt-5 pb-4 gap-1">
+                            <div class="footer-item__contact-address-item d-flex gap-2"> <img
+                                    class="footer-item__contact-address-logo pr-1" src="images/location-icon.png"
+                                    alt="address-icon"> Address: </div>
+                            <div class="footer-item__contact-address-line">908 New Hampshire Avenue Northwest</div>
+                            <div class="footer-item__contact-address-line">#100, Washington, DC</div>
+                            <div class="footer-item__contact-address-line">20037, United States</div>
+                        </div>
+                    </div>
+                    <div class="divider"></div>
+                    <div class="footer-item__contact footer-item__contact--bottom d-flex flex-column gap-2 pt-4 pb-2">
+                        <div class="footer-item__contact-phone d-flex align-items-center py-1 gap-2"> <i
+                                class="fa-solid fa-headphones pr-1"></i> Phone: +1 916-875-2235 </div>
+                        <div class="footer-item__contact-fax d-flex align-items-center py-1 gap-2"> <img class="pr-1"
+                                src="/images/fax-icon.png" alt="fax-icon"> Fax: +1 916-875-2235 </div>
+                        <div class="footer-item__contact-email d-flex align-items-center py-1 gap-2"> <i
+                                class="fa-regular fa-envelope pr-1"></i> Email: <a class="is-highlighted"> info@domain.ltd</a>
+                            </div>
+                        <div class="footer-item__contact-website d-flex align-items-center py-1 gap-2">
+                                <img class="pr-1" src="/images/website-icon.png" alt="website-icon"> Website:
+                            <a class="is-highlighted">www.codex-themes.com</a>
+                        </div>
+                    </div>
+                   </div>
+                </div>
+                    <!-- Column 2 -->
+                <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 pt-11 footer-item">
+                    <!-- Recent post section -->
+                    <div class="col-12 p-0">
+                        <div class="footer-item__posts pb-7 pb-xs-7">
+                            <h1 class="m-0 pb-5">Recent posts</h1>
+                                <!-- Post 1 -->
+                            <div class="footer-item__post d-flex align-items-center gap-2 py-2-plus">
+                                <div class="footer-item__post-avt avt-1"></div>
+                                <div class="footer-item__post-content d-flex flex-column gap-1 px-1">
+                                    <div class="footer-item__post-text"> Proin gravida nibh vel velit auctor aliquet
+                                        aenean lorem proin gravida nibh vel velit auctor aliquet
+                                        aenean lorem  </div>
+                                    <div class="footer-item__post-meta d-flex justify-content-between">
+                                        <a class="footer-item__post-time">27 Dec 2015</a>
+                                        <a class="footer-item__post-comment"> <i class="fa-solid fa-comments pr-1"></i>
+                                            <span>0</span> </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="divider"></div>
+                                <!-- Post 2 -->
+                            <div class="footer-item__post d-flex align-items-center gap-2 py-2-plus">
+                                <div class="footer-item__post-avt avt-2"></div>
+                                <div class="footer-item__post-content d-flex flex-column gap-1 px-1">
+                                    <div class="footer-item__post-text"> Proin gravida nibh vel velit auctor aliquet
+                                        aenean lorem proin gravida nibh vel velit auctor aliquet
+                                        aenean lorem </div>
+                                    <div class="footer-item__post-meta d-flex justify-content-between">
+                                        <a class="footer-item__post-time">27 Dec 2015</a>
+                                        <a class="footer-item__post-comment is-highlighted"> <i class="fa-solid fa-comments pr-1"></i>
+                                            <span>14</span> </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="divider"></div>
+                                <!-- Post 3 -->
+                            <div class="footer-item__post d-flex align-items-center gap-2 py-2-plus">
+                                <div class="footer-item__post-avt avt-3"></div>
+                                <div class="footer-item__post-content d-flex flex-column gap-1 px-1">
+                                    <div class="footer-item__post-text">Proin gravida nibh vel velit auctor aliquet
+                                        aenean lorem proin gravida nibh vel velit auctor aliquet
+                                        aenean lorem </div>
+                                    <div class="footer-item__post-meta d-flex justify-content-between">
+                                        <a class="footer-item__post-time">27 Dec 2015</a>
+                                        <a class="footer-item__post-comment"> <i class="fa-solid fa-comments pr-1"></i>
+                                            <span>0</span> </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Useful links section -->
+                    <div class="col-12 p-0">
+                        <div class="footer-item__usefuls">
+                            <h1 class="m-0 pb-4">Useful links</h1>
+                            <div class="footer-item__useful d-flex flex-column m-0 p-0 pt-1">
+                                <a class="py-2">General Information For Users</a>
+                                <div class="divider"></div>
+                                <a class="py-2">Interactive Fairy Tales</a>
+                                <div class="divider"></div>
+                                <a class="py-2">Official Storybook Maker Website</a>
+                                <div class="divider"></div>
+                                <a class="py-2">Everyday Mathematics Links</a>
+                                <div class="divider"></div>
+                                <a class="py-2">Basic Knowledge and Experience</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Column 3 -->
+                <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 pt-11 footer-item">
+                    <!-- Email us section -->
+                     <div class="col-12 p-0">
+                        <div class="footer-item__email pb-9 pb-xs-9 d-flex flex-column gap-3">
+                            <h1 class="m-0 pb-4">Email us</h1>
+                            <div class="footer-item__email-name d-flex pt-1">
+                                <input type="text" name="name" id="name" placeholder="Your name" class="py-2 pl-3 pr-5">
+                                <label for="name"> <img src="/images/logo_user.png" alt=""></label>
+                                </div>
+                            <div class="footer-item__email-mail d-flex">
+                                <input type="email" name="email" id="email" placeholder="Your email" autocomplete="off" class="py-2 pl-3 pr-5">
+                                <label for="email" class="d-flex align-items-center"> <i class="fa-solid fa-envelope"></i></label>
+                            </div>
+                            <textarea class="footer-item__email-message py-2 px-3" name="message" id="message"
+                                title="message" placeholder="Your message"></textarea>
+                                
+                                <button class="footer-item__email-button py-2-plus" title="Send message">Send message</button>
+                        </div>
+                     </div>
+                     <!-- Projects section -->
+                     <div class="col-12 p-0">
+                        <div class="footer-item__projects">
+                            <h1 class="m-0 pb-6">Projects / clients ?</h1>
+                            <div class="footer-item__projects-list d-flex flex-wrap justify-content-center pt-1 pb-2">
+                                <div class="footer-item__project"></div>
+                                <div class="footer-item__project"></div>
+                                <div class="footer-item__project"></div>
+                                <div class="footer-item__project"></div>
+                                <div class="footer-item__project"></div>
+                                <div class="footer-item__project"></div>
+                            </div>
+                            <div class="footer__indicators d-flex gap-2 justify-content-center pt-1">
+                                <a class="footer__indicator footer__indicator--current"></a>
+                                <a class="footer__indicator"></a>
+                                <a class="footer__indicator"></a>
+                            </div>
+                        </div>
+                     </div>
+                </div>
+                
+                <!-- Column 4 -->
+                <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 pt-11 footer-item">
+                    <!-- Flickr Feed section -->
+                    <div class="col-12 p-0">
+                        <div class="footer-item__flickr pb-9 pb-xs-9">
+                            <h1 class="m-0 pb-6">Flickr feed</h1>
+                            <div class="footer-item__flickr-list d-flex flex-wrap justify-content-center pt-1">
+                                <div class="footer-item__flickr-feed"></div>
+                                <div class="footer-item__flickr-feed"></div>
+                                <div class="footer-item__flickr-feed"></div>
+                                <div class="footer-item__flickr-feed"></div>
+                                <div class="footer-item__flickr-feed"></div>
+                                <div class="footer-item__flickr-feed"></div>
+                                <div class="footer-item__flickr-feed"></div>
+                                <div class="footer-item__flickr-feed"></div>
+                                <div class="footer-item__flickr-feed"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Newsletter section -->
+                    <div class="col-12 p-0">
+                        <div class="footer-item__letters pb-9 pb-xs-9 d-flex flex-column gap-3">
+                            <h1 class="m-0 pb-3">Newsletter</h1>
+                            <p class="footer-item__letter-content m-0 pb-4">
+                            Subscribe to our MailChimp newsletter and stay up to date with
+                                all events coming straight in your mailbox:
+                            </p>
+                            <div class="footer-item__letter-mail d-flex mb-3">
+                                <input type="email" name="letter-email" id="letter-email" placeholder="Your email address" autocomplete="off" class="py-2 pl-3 pr-5">
+                                <a class="footer-item__letter-mail__button d-flex align-items-center py-2 px-3 " href="#" title="Send letter mail">
+                                    <i class="fa-solid fa-chevron-right"></i>
+                                </a>
+                            </div>
+                            <div class="footer-item__letter-text"><span class="is-highlighted">*</span> Personal information will be encrypted</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <footer class="footer-bottom">
+        <div class="container">
+            <div class="row py-6 footer__bar gap-3 justify-content-between">
+                <div class="col-xl-3 col-lg-12 footer__bar-copyright text-center"> © Copyright 2015 <a class="is-highlighted">CodexThemes</a> </div>
+                <div class="col-xl-5 col-lg-12 footer__bar-menu d-flex flex-wrap justify-content-center">
+                    <a class="footer__bar-menu__item">Support</a>
+                    <a class="footer__bar-menu__item">Contact us</a>
+                    <a class="footer__bar-menu__item">Disclaimer</a>
+                    <a class="footer__bar-menu__item">Privacy Policy</a>
+                </div>
+                <div class="col-xl-3 col-lg-12 footer__bar-social d-flex align-items-center justify-content-center justify-content-xl-end gap-3">
+                    <a href="" title="twitter"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="" title="facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="" title="linkedin"><i class="fa-brands fa-linkedin-in"></i></a>
+                    <a href="" title="socialx"><img src="/images/social.png" alt=""></a>
+                    <a href="" title="youtube"><i class="fa-brands fa-youtube"></i></a>
+                    <a href="" title="google"><img src="/images/google.png" alt=""></a>
+                    <a href="" title="pinterest"><i class="fa-brands fa-pinterest-p"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
 </body>
+
 </html>

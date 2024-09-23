@@ -113,11 +113,12 @@
     font-weight: bold;
     border-radius: 35px;
     font-family: "Montserrat", sans-serif;
-    cursor: pointer;
+    transition: color 0.3s ease;
 }
 
 .pricing-table__button:hover {
     background-color: #2c2e3d;
+    cursor: pointer;
 }
 
 .pricing-table__button:hover + .pricing-table__pricing {

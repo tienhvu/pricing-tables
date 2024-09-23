@@ -35,11 +35,13 @@
   color: #ffffff;
   background-color: transparent;
   border: 3px solid #ffffff;
+  transition: color 0.3s ease;
 }
 
 .slider__button:hover {
   color: var(--light-blue);
   border: 3px solid var(--light-blue);
+  cursor: pointer;
 }
 
 .slider__arrow {

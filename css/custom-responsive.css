@@ -225,6 +225,7 @@
 @media (min-width: 1200px) {
     .flex-xl-row { flex-direction: row; }
     .flex-xl-column { flex-direction: column; }
+    .justify-content-xl-end { justify-content: flex-end;}
 }
 
 /* Margin and Padding utilities */
@@ -359,6 +360,10 @@
 
 }
 
+@media (max-width: 305px) {
+  .justify-content-xs-center { justify-content: center!important;}
+}
+
 .m-0 { margin: 0; }
 .m-1 { margin: 4px; }
 .m-2 { margin: 8px; }
@@ -462,6 +467,31 @@
 .pb-10 { padding-bottom: 96px;}
 .pb-11 { padding-bottom: 112px;}
 
+.pl-0 { padding-left: 0; }
+.pl-1 { padding-left: 4px; }
+.pl-2 { padding-left: 8px; }
+.pl-3 { padding-left: 16px; }
+.pl-4 { padding-left: 24px; }
+.pl-5 { padding-left: 32px; }
+.pl-6 { padding-left: 40px; }
+.pl-7 { padding-left: 48px; }
+.pl-8 { padding-left: 64px;}
+.pl-9 { padding-left: 72px;}
+.pl-10 { padding-left: 96px;}
+.pl-11 { padding-left: 112px;}
+
+.pr-0 { padding-right: 0; }
+.pr-1 { padding-right: 4px; }
+.pr-2 { padding-right: 8px; }
+.pr-3 { padding-right: 16px; }
+.pr-4 { padding-right: 24px; }
+.pr-5 { padding-right: 32px; }
+.pr-6 { padding-right: 40px; }
+.pr-7 { padding-right: 48px; }
+.pr-8 { padding-right: 64px;}
+.pr-9 { padding-right: 72px;}
+.pr-10 { padding-right: 96px;}
+.pr-11 { padding-right: 112px;}
 
 .px-0 { padding-left: 0; padding-right:  0; }
 .px-1 { padding-left: 4px; padding-right:  4px;}
