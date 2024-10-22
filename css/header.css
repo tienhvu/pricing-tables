@@ -68,17 +68,42 @@
     color: #ffffff;
     font-size: 0.875rem;
     margin-left: 8px;
-    background-color: var(--light-blue);
+    height: 16px;
     position: relative;
+    display: inline-flex;
+    align-items: center;
+    background-color: var(--light-blue);
+    box-sizing: border-box;
   }
   
-  .header__tool-cart-count::before {
+  /* .header__tool-cart-count::before {
     content: "";
     position: absolute;
     right: 100%;
     border-width: 8px;
     border-style: solid;
     border-color: transparent var(--light-blue) transparent transparent;
+  } */
+  /* .header__tool-cart-count {
+    color: #ffffff;
+    font-size: 0.875rem;
+    padding: 4px 8px;
+    background-color: var(--light-blue);
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    height: 16px; 
+    box-sizing: border-box;
+  } */
+  .header__tool-cart-count::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 100%;
+    bottom: 0;
+    width: 8px; 
+    background-color: var(--light-blue);
+    clip-path: polygon(100% 0, 0 50%, 100% 100%);
   }
   
   /* Handle click menu toggle -> show menu */

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tech Product Slider</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="/js/slider.js"></script>
+    <style>
+        .slider {
+            position: relative;
+            overflow: hidden;
+            background: #f8f9fa;
+            margin: 20px auto;
+            max-width: 1200px;
+        }
+        .slider__container {
+            transition: transform 1s ease-in-out;
+        }
+        .slider__slide {
+            min-width: 100%;
+            animation: fade 1s ease-in-out;
+        }
+
+        .product-card {
+            padding: 40px 20px;
+            text-align: center;
+            background: white;
+            margin: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .product-image {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            margin-bottom: 20px;
+        }
+
+        .product-title {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .product-price {
+            font-size: 22px;
+            color: #e44d26;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .product-description {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .slider__arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0,0,0,0.5);
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            z-index: 10;
+        }
+
+        .slider__arrow--prev {
+            left: 20px;
+        }
+
+        .slider__arrow--next {
+            right: 20px;
+        }
+
+        .slider__indicators {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+        }
+
+        .slider__indicator {
+            width: 12px;
+            height: 12px;
+            background: rgba(0,0,0,0.3);
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .slider__indicator--current {
+            background: #e44d26;
+        }
+
+        .buy-button {
+            background: #e44d26;
+            color: white;
+            border: none;
+            padding: 10px 25px;
+            border-radius: 25px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .buy-button:hover {
+            background: #c73e1d;
+        }
+
+        @keyframes fade {
+        from {opacity: .4} 
+        to {opacity: 1}
+        }
+
+    </style>
+</head>
+<body>
+    <div class="slider">
+        <div class="slider__container">
+            <!-- Slide 1 -->
+            <div class="slider__slide">
+                <div class="product-card">
+                    <img src="https://th.bing.com/th/id/OIP.U4kD0rV_y_aEc71ErVeNeQHaHa?rs=1&pid=ImgDetMain" alt="Laptop" class="product-image">
+                    <h2 class="product-title">Laptop Pro 2024</h2>
+                    <div class="product-price">29.999.000 ₫</div>
+                    <p class="product-description">
+                        Laptop mỏng nhẹ với hiệu năng mạnh mẽ, màn hình Retina 14 inch, 
+                        bộ vi xử lý thế hệ mới nhất và thời lượng pin cả ngày.
+                    </p>
+                    <button class="buy-button">Mua ngay</button>
+                </div>
+            </div>
+
+            <!-- Slide 2 -->
+            <div class="slider__slide">
+                <div class="product-card">
+                    <img src="https://techland.com.vn/wp-content/uploads/2019/09/dien-thoai-iphone-11-pro-max-4.jpg" alt="Smartphone" class="product-image">
+                    <h2 class="product-title">IPhone 11 Pro max</h2>
+                    <div class="product-price">19.999.000 ₫</div>
+                    <p class="product-description">
+                        Điện thoại thông minh với camera AI, màn hình AMOLED 6.7 inch, 
+                        pin 5000mAh và sạc nhanh 65W.
+                    </p>
+                    <button class="buy-button">Mua ngay</button>
+                </div>
+            </div>
+
+            <!-- Slide 3 -->
+            <div class="slider__slide">
+                <div class="product-card">
+                    <img src="https://genk.mediacdn.vn/139269124445442048/2023/2/8/gsmarena006-1675841255186-16758412552751196905584-1675841877479-16758418776701222952206.jpg" alt="Tablet" class="product-image">
+                    <h2 class="product-title">One plus Tablet</h2>
+                    <div class="product-price">15.999.000 ₫</div>
+                    <p class="product-description">
+                        Máy tính bảng cao cấp với bút cảm ứng, màn hình 11 inch, 
+                        phù hợp cho công việc sáng tạo và giải trí.
+                    </p>
+                    <button class="buy-button">Mua ngay</button>
+                </div>
+            </div>
+        </div>
+
+        <button class="slider__arrow slider__arrow--prev" aria-label="Previous slide">
+            <i class="fa-solid fa-chevron-left"></i>
+        </button>
+        <button class="slider__arrow slider__arrow--next" aria-label="Next slide">
+            <i class="fa-solid fa-chevron-right"></i>
+        </button>
+
+        <div class="slider__indicators">
+        </div>
+    </div>
+
+</body>
+</html>
