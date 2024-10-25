@@ -2,6 +2,18 @@
   position: relative;
   background-color: var(--dark-gray-blue);
   color: #ffffff;
+  overflow: hidden;
+}
+
+.slider__container {
+  display: flex;
+  transition: transform 0.6s ease-in-out; 
+}
+
+.slider__slide {
+  flex: 0 0 100%;
+  width: 100%;
+  animation: fade 1s ease-in-out;
 }
 
 .slider__logo .fa-solid {
@@ -92,4 +104,9 @@
 
 .slider__indicator--current::after {
   background-color: var(--light-blue);
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
 }
