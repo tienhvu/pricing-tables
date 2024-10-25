@@ -54,12 +54,6 @@ const validationRules = {
     }
 };
 
-// function addValidationRule(ruleName, validationFn) {
-//     validationRules[ruleName] = {
-//         validate: validationFn
-//     };
-// }
-
 function validateRule(rule, value, options = {}) {
     const validationRule = validationRules[rule];
     if (!validationRule) return { isValid: true };
