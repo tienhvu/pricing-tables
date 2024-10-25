@@ -1,127 +1,182 @@
-const form = document.querySelector('#registrationForm, #loginForm');
-const submitBtn = document.getElementById('submitBtn');
-const modal = document.getElementById('successModal');
-let hasErrors = false;
+const validationRules = {
+    required: {
+        validate: value => ({
+            isValid: value.trim().length > 0,
+            message: 'Trường này là bắt buộc'
+        })
+    },
+    email: {
+        validate: value => ({
+            isValid: /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value),
+            message: 'Email không hợp lệ'
+        })
+    },
+    password: {
+        validate: value => {
+            const conditions = [
+                {
+                    check: value => /^(?=.{8,32})/.test(value),
+                    message: 'Mật khẩu phải có 8-32 ký tự'
+                },
+                {
+                    check: value => /^(?=.*[a-z])/.test(value), 
+                    message: 'Mật khẩu phải có ít nhất 1 chữ thường'
+                },
+                {
+                    check: value => /^(?=.*[A-Z])/.test(value),
+                    message: 'Mật khẩu phải có ít nhất 1 chữ hoa'
+                }
+            ];
+            
+            for (const condition of conditions) {
+                if (!condition.check(value)) {
+                    return {
+                        isValid: false,
+                        message: condition.message
+                    };
+                }
+            }
+            return { isValid: true };
+        }
+    },
+   name: {
+        validate: value => ({
+            isValid: /^[a-zA-ZÀ-ỹ\s]+$/.test(value),
+            message: 'Tên không hợp lệ (chỉ chấp nhận chữ cái và khoảng trắng)'
+        })
+    },
 
-const isRegistrationForm = form?.id === 'registrationForm';
-
-function validateName(name) {
-    const vietnameseNameRegex = /^[a-zA-ZÀ-ỹ\s]+$/;
-    return vietnameseNameRegex.test(name);
-}
-
-function validateEmail(email) {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailRegex.test(email);
-}
-
-function validatePassword(password) {
-    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z]).{8,32}$/;
-    return passwordRegex.test(password);
-}
-
-function showError(input, errorElement, message) {
-    errorElement.style.display = 'block';
-    errorElement.textContent = message;
-    hasErrors = true;
-}
-
-function hideError(errorElement) {
-    errorElement.style.display = 'none';
-}
-
-function validateInput(input, validationFn, errorMsg) {
-    const errorElement = document.getElementById(`${input.id}Error`);
-    if (!validationFn(input.value)) {
-        showError(input, errorElement, errorMsg);
-    } else {
-        hideError(errorElement);
+    match: {
+        validate: (value, matchValue) => ({
+            isValid: value === matchValue,
+            message: 'Giá trị không khớp'
+        })
     }
-    checkFormValidity();
-}
+};
 
-function resetForm() {
-    form.reset();
-    submitBtn.disabled = true;
-}
+// function addValidationRule(ruleName, validationFn) {
+//     validationRules[ruleName] = {
+//         validate: validationFn
+//     };
+// }
 
-function checkFormValidity() {
-    hasErrors = false;
-    const email = document.getElementById('email');
-    const password = document.getElementById('password');
-    
-    if (!validateEmail(email.value)) hasErrors = true;
-    if (!validatePassword(password.value)) hasErrors = true;
-    
-    if (isRegistrationForm) {
-        const name = document.getElementById('name');
-        const confirmPassword = document.getElementById('confirmPassword');
-        
-        if (!validateName(name.value)) hasErrors = true;
-        if (password.value !== confirmPassword.value) hasErrors = true;
+function validateRule(rule, value, options = {}) {
+    const validationRule = validationRules[rule];
+    if (!validationRule) return { isValid: true };
+
+    if (rule === 'match' && options.matchValue !== undefined) {
+        return validationRule.validate(value, options.matchValue);
     }
     
-    submitBtn.disabled = hasErrors;
+    return validationRule.validate(value);
 }
 
-if (form) {
-    const email = document.getElementById('email');
-    const password = document.getElementById('password');
+function updateErrorDisplay(errorElement, { isValid, message }) {
+    if (!errorElement) return;
     
-    email.addEventListener('input', function() {
-        validateInput(this, validateEmail, 'Email không hợp lệ');
-    });
-    
-    password.addEventListener('input', function() {
-        validateInput(this, validatePassword, 'Mật khẩu phải có 8-32 ký tự, ít nhất 1 chữ hoa và 1 chữ thường');
-    });
-    
-    if (isRegistrationForm) {
-        const name = document.getElementById('name');
-        const confirmPassword = document.getElementById('confirmPassword');
+    errorElement.textContent = message || '';
+    errorElement.style.display = isValid ? 'none' : 'block';
+}
+
+function validateInput(input, showError) {
+    const rules = [
+        ...(input.dataset.required ? ['required'] : []),
+        ...(input.dataset.validate?.split(' ') || [])
+    ].filter(Boolean);
+
+    const errorElement = document.getElementById(`${input.name}Error`);
+    let result = { isValid: true, message: '' };
+
+    if (input.value.trim() || rules.includes('required')) {
+        for (const rule of rules) {
+            const options = {
+                matchValue: rule === 'match' ? 
+                    document.getElementById(input.dataset.match)?.value : 
+                    undefined
+            };
+
+            result = validateRule(rule, input.value, options);
+
+            if (!result.isValid) break;
+        }
+    }
+
+    if (showError) {
+        updateErrorDisplay(errorElement, result);
+    }
+    return result.isValid;
+}
+
+function checkFormValidity(form) {
+    const inputs = form.querySelectorAll('input[name]');
+    return Array.from(inputs).every(input => validateInput(input, true));
+}
+
+function setupFormValidation(formSelector = 'form') {
+    document.querySelectorAll(formSelector).forEach(form => {
+        const submitBtn = form.querySelector('[type="submit"]');
         
-        name.addEventListener('input', function() {
-            validateInput(this, validateName, 'Tên không hợp lệ (chỉ chấp nhận chữ cái và khoảng trắng)');
-        });
-        
-        password.addEventListener('input', function() {
-            if (confirmPassword.value) {
-                validateInput(
-                    confirmPassword,
-                    (value) => value === this.value,
-                    'Mật khẩu xác nhận không khớp'
-                );
+        function updateSubmitButton() {
+            const isValid = checkFormValidity(form);
+            submitBtn.disabled = !isValid;
+        }
+
+        form.querySelectorAll('input[name]').forEach(input => {
+            input.addEventListener('input', () => {
+                validateInput(input, true);
+                updateSubmitButton();
+            });
+
+            input.addEventListener('blur', () => {
+                validateInput(input, true);
+                updateSubmitButton();
+            });
+
+            if (input.dataset.match) {
+                const targetInput = document.getElementById(input.dataset.match);
+                if (targetInput) {
+                    targetInput.addEventListener('input', () => {
+                        validateInput(input, true);
+                        updateSubmitButton();
+                    });
+                }
             }
         });
-        
-        confirmPassword.addEventListener('input', function() {
-            validateInput(
-                this,
-                (value) => value === password.value,
-                'Mật khẩu xác nhận không khớp'
-            );
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            let isValid = true;
+            form.querySelectorAll('input[name]').forEach(input => {
+                const inputIsValid = validateInput(input, true);
+                if (!inputIsValid) isValid = false;
+            });
+            
+            if (isValid) {
+                const modal = document.getElementById('successModal');
+                if (modal) modal.style.display = 'block';
+            }
         });
-    }
-    
-    form.addEventListener('submit', function(e) {
-        e.preventDefault();
-        if (!hasErrors) {
-            modal.style.display = 'block';
-        }
     });
+}
+
+function resetForm(form) {
+    form.reset();
+    form.querySelectorAll('.error-message').forEach(error => {
+        error.style.display = 'none';
+        error.textContent = '';
+    });
+    const submitBtn = form.querySelector('[type="submit"]');
+    if (submitBtn) submitBtn.disabled = true;
 }
 
 function closeModal() {
-    modal.style.display = 'none';
-    resetForm();
-}
-
-window.onclick = function(event) {
-    if (event.target === modal) {
-        closeModal();
+    const modal = document.getElementById('successModal');
+    if (modal) {
+        modal.style.display = 'none';
+        const form = document.querySelector('form');
+        if (form) resetForm(form);
     }
 }
 
-if (form) {
-    checkFormValidity();
-}
+setupFormValidation();
