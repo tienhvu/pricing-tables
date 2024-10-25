@@ -8,7 +8,7 @@ function makeSlideshow(selector) {
     let slideIndex = 0;
     let slideInterval;
     
-    slides.forEach(() => {
+    slides.forEach((_, index) => {
         const indicator = document.createElement("div");
         indicator.classList.add("slider__indicator");
         indicatorsContainer.appendChild(indicator);
@@ -62,8 +62,8 @@ function makeSlideshow(selector) {
     resetInterval();
   }
   
-  document.addEventListener("DOMContentLoaded", () => {
-    makeSlideshow(".slider");
-    makeSlideshow(".slider_2");
-  });
+makeSlideshow(".slider");
+makeSlideshow(".slider_2");
+
+
   
