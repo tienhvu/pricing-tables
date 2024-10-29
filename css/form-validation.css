@@ -73,6 +73,7 @@ button[type="submit"] {
   font-weight: 600;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  margin-bottom: 20px;
 }
 
 button[type="submit"]:hover {
@@ -82,6 +83,10 @@ button[type="submit"]:hover {
 button[type="submit"]:disabled {
   background-color: #cccccc;
   cursor: not-allowed;
+}
+
+.form-footer a {
+  color: rgb(19, 112, 179);
 }
 
 .modal {
@@ -130,6 +135,7 @@ button[type="submit"]:disabled {
 .form-group input:focus + .error-message {
   display: block;
 }
+
 
 @media (max-width: 480px) {
   form {
