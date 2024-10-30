@@ -96,12 +96,13 @@ const loginRules = {
     }
 };
 
-function validateField(formElement, fieldName, fieldValue, validationRules) {
-    const rulesForField = validationRules[fieldName];
+function validateField(formElement, input, validationRules) {
+    const fieldValue = input.value;
+    const rulesForField = validationRules[input.name];
     if (!rulesForField) return { isValid: true };
-    
+
     const ruleNames = Object.keys(rulesForField);
-    
+
     for (const ruleName of ruleNames) {
         const ruleDetails = rulesForField[ruleName];
         let isValid = true;
@@ -114,7 +115,7 @@ function validateField(formElement, fieldName, fieldValue, validationRules) {
                     isValid = fieldValue.length >= ruleDetails.value;
                     break;
                 case 'maxLength':
-                    isValid =  fieldValue.length <= ruleDetails.value;
+                    isValid = fieldValue.length <= ruleDetails.value;
                     break;
                 case 'match':
                     const targetInput = formElement.querySelector(`[name="${ruleDetails.value}"]`);
@@ -124,70 +125,55 @@ function validateField(formElement, fieldName, fieldValue, validationRules) {
         }
 
         if (!isValid) {
+            const errorElement = document.getElementById(`${input.name}Error`);
+            if (errorElement) {
+                errorElement.textContent = ruleDetails.message;
+                errorElement.style.display = 'block';
+            }
             return {
                 isValid: false,
                 message: ruleDetails.message
             };
         }
     }
-    
+
+    const errorElement = document.getElementById(`${input.name}Error`);
+    if (errorElement) {
+        errorElement.textContent = '';
+        errorElement.style.display = 'none';
+    }
+
     return { isValid: true };
 }
 
-function setupFormValidation(formId, rules) {
+function validateForm(formId, rules) {
     const form = document.getElementById(formId);
     if (!form) return;
 
     const submitBtn = form.querySelector('[type="submit"]');
+    submitBtn.disabled = true;
+    if (!submitBtn) return;
+    const inputs = Array.from(form.querySelectorAll('input'))
+    .filter(input => rules[input.name]);
 
-    function validateAndShowError(fieldName, showErrors = true) {
-        const input = form.querySelector(`[name="${fieldName}"]`);
-        if (!input) return { isValid: true };
-
-        const result = validateField(form, fieldName, input.value, rules);
-        const errorElement = document.getElementById(`${fieldName}Error`);
-
-        if (errorElement && showErrors) {
-            errorElement.textContent = result.isValid ? '' : result.message;
-            errorElement.style.display = result.isValid ? 'none' : 'block';
-        }
-
-        return result;
-    }
-
-    function validateAllFields(showErrors = true) {
-        let isValid = true;
-        Object.keys(rules).forEach(fieldName => {
-            const result = validateAndShowError(fieldName, showErrors);
-            if (!result.isValid) isValid = false;
-        });
-        return isValid;
-    }
-
-    Object.keys(rules).forEach(fieldName => {
-        const input = form.querySelector(`[name="${fieldName}"]`);
-        if (!input) return;
-
+    inputs.forEach(input => {
         input.addEventListener('input', () => {
-            validateAndShowError(fieldName, true);
-            if (submitBtn) {
-                submitBtn.disabled = !validateAllFields(false);
-            }
-        });
+            validateField(form, input, rules);
+            const allFieldsValid = inputs.every(input => {
+                const result = validateField(form, input, rules);
+                return result.isValid;
+            });
 
-        input.addEventListener('blur', () => {
-            validateAndShowError(fieldName, true);
+            submitBtn.disabled = !allFieldsValid;
         });
     });
 
     form.addEventListener('submit', (e) => {
         e.preventDefault();
-        
-        if (validateAllFields(true)) {
-            const modal = document.getElementById('successModal');
-            if (modal) modal.style.display = 'block';
-        }
+        const modal = document.getElementById('successModal');
+        if (modal) modal.style.display = 'block';
     });
+
 }
 
 function closeModal() {
@@ -197,6 +183,8 @@ function closeModal() {
         const form = document.querySelector('form');
         if (form) {
             form.reset();
+            const submitBtn = form.querySelector('[type="submit"]');
+            submitBtn.disabled = true;
             form.querySelectorAll('.error-message').forEach(error => {
                 error.style.display = 'none';
                 error.textContent = '';
@@ -205,5 +193,5 @@ function closeModal() {
     }
 }
 
-setupFormValidation('loginForm', loginRules);
-setupFormValidation('registrationForm', registrationRules);
+validateForm('loginForm', loginRules);
+validateForm('registrationForm', registrationRules);
