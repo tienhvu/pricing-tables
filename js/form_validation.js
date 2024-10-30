@@ -4,9 +4,6 @@ const regex = {
     letters: /^[a-zA-ZÀ-ỹ\s]+$/,
     lowercase: /^(?=.*[a-z])/,
     uppercase: /^(?=.*[A-Z])/,
-    minLength: (len) => new RegExp(`^.{${len},}$`),
-    maxLength: (len) => new RegExp(`^.{0,${len}}$`),
-    match: (targetValue) => new RegExp(`^${targetValue}$`)
 };
 
 const registrationRules = {
@@ -109,16 +106,21 @@ function validateField(formElement, fieldName, fieldValue, validationRules) {
         const ruleDetails = rulesForField[ruleName];
         let isValid = true;
 
-        if (typeof regex[ruleName] === 'function') {
-            if (ruleName === 'match') {
-                const targetInputElement = formElement.querySelector(`[name="${ruleDetails.value}"]`);
-                isValid = targetInputElement ? regex[ruleName](targetInputElement.value).test(fieldValue) : false;
-            } else {
-                isValid = regex[ruleName](ruleDetails.value).test(fieldValue);
-            }
-        } 
-        else if (regex[ruleName]) {
+        if (regex[ruleName]) {
             isValid = regex[ruleName].test(fieldValue);
+        } else {
+            switch (ruleName) {
+                case 'minLength':
+                    isValid = fieldValue.length >= ruleDetails.value;
+                    break;
+                case 'maxLength':
+                    isValid =  fieldValue.length <= ruleDetails.value;
+                    break;
+                case 'match':
+                    const targetInput = formElement.querySelector(`[name="${ruleDetails.value}"]`);
+                    isValid = targetInput && fieldValue === targetInput.value;
+                    break;
+            }
         }
 
         if (!isValid) {
