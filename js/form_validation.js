@@ -1,188 +1,192 @@
+const regex = {
+    required: /^(?!\s*$).+/,
+    email: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+    letters: /^[a-zA-ZÀ-ỹ\s]+$/,
+    lowercase: /^(?=.*[a-z])/,
+    uppercase: /^(?=.*[A-Z])/,
+    minLength: (len) => new RegExp(`^.{${len},}$`),
+    maxLength: (len) => new RegExp(`^.{0,${len}}$`),
+    match: (targetValue) => new RegExp(`^${targetValue}$`)
+};
+
 const registrationRules = {
     name: {
         required: {
-            validate: value => value.trim().length > 0,
+            value: true,
             message: 'Tên là bắt buộc'
         },
-        pattern: {
-            validate: value => /^[a-zA-ZÀ-ỹ\s]+$/.test(value),
+        letters: {
+            value: true,
             message: 'Tên chỉ chấp nhận chữ cái và khoảng trắng'
         }
     },
     email: {
         required: {
-            validate: value => value.trim().length > 0,
+            value: true,
             message: 'Email là bắt buộc'
         },
-        pattern: {
-            validate: value => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value),
+        email: {
+            value: true,
             message: 'Email không hợp lệ'
         }
     },
     password: {
         required: {
-            validate: value => value.trim().length > 0,
+            value: true,
             message: 'Mật khẩu là bắt buộc'
         },
         lowercase: {
-            validate: value => /^(?=.*[a-z])/.test(value),
+            value: true,
             message: 'Mật khẩu phải có ít nhất 1 chữ thường'
         },
         uppercase: {
-            validate: value => /^(?=.*[A-Z])/.test(value),
+            value: true,
             message: 'Mật khẩu phải có ít nhất 1 chữ hoa'
         },
         minLength: {
-            validate: value => /^(?=.{8,32})/.test(value),
-            message: 'Mật khẩu phải có 8-32 ký tự'
+            value: 8,
+            message: 'Mật khẩu phải có ít nhất 8 ký tự'
         },
+        maxLength: {
+            value: 32,
+            message: 'Mật khẩu không được vượt quá 32 ký tự'
+        }
     },
     confirmPassword: {
         required: {
-            validate: value => value.trim().length > 0,
+            value: true,
             message: 'Xác nhận mật khẩu là bắt buộc'
         },
         match: {
-            validate: (value, form) => value === form.querySelector('[name="password"]').value,
+            value: 'password',
             message: 'Mật khẩu không khớp'
         }
     }
-            
 };
 
 const loginRules = {
     email: {
         required: {
-            validate: value => value.trim().length > 0,
+            value: true,
             message: 'Email là bắt buộc'
         },
-        pattern: {
-            validate: value => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value),
+        email: {
+            value: true,
             message: 'Email không hợp lệ'
         }
     },
     password: {
         required: {
-            validate: value => value.trim().length > 0,
+            value: true,
             message: 'Mật khẩu là bắt buộc'
         },
         lowercase: {
-            validate: value => /^(?=.*[a-z])/.test(value),
+            value: true,
             message: 'Mật khẩu phải có ít nhất 1 chữ thường'
         },
         uppercase: {
-            validate: value => /^(?=.*[A-Z])/.test(value),
+            value: true,
             message: 'Mật khẩu phải có ít nhất 1 chữ hoa'
         },
         minLength: {
-            validate: value => /^(?=.{8,32})/.test(value),
-            message: 'Mật khẩu phải có 8-32 ký tự'
+            value: 8,
+            message: 'Mật khẩu phải có ít nhất 8 ký tự'
         },
-    },
-}
-
-
-const FormValidation = {
-    rules: {},
-
-    registerForm(formId, formRules) {
-        this.rules[formId] = formRules;
-        this.setupFormValidation(formId);
-    },
-
-    getFormRules(formId) {
-        return this.rules[formId];
-    },
-
-    validateField(form, fieldName, value) {
-        const formId = form.id;
-        const fieldRules = this.rules[formId]?.[fieldName];
-        if (!fieldRules) return { isValid: true };
-
-        for (const [ruleName, rule] of Object.entries(fieldRules)) {
-            const isValid = rule.validate(value, form);
-            if (!isValid) {
-                return {
-                    isValid: false,
-                    message: rule.message
-                };
-            }
-        }
-
-        return { isValid: true };
-    },
-
-    setupFormValidation(formId) {
-        const form = document.getElementById(formId);
-        if (!form || !this.rules[formId]) return;
-
-        const formConfig = this.rules[formId];
-        const submitBtn = form.querySelector('[type="submit"]');
-
-        const validateAndShowError = (fieldName, showErrors = true) => {
-            const input = form.querySelector(`[name="${fieldName}"]`);
-            if (!input) return { isValid: true };
-
-            const result = this.validateField(form, fieldName, input.value);
-            const errorElement = document.getElementById(`${fieldName}Error`);
-
-            if (errorElement && showErrors) {
-                errorElement.textContent = result.isValid ? '' : result.message;
-                errorElement.style.display = result.isValid ? 'none' : 'block';
-            }
-
-            return result;
-        };
-
-        const validateAllFields = (showErrors = true) => {
-            let isValid = true;
-            Object.keys(formConfig).forEach(fieldName => {
-                const result = validateAndShowError(fieldName, showErrors);
-                if (!result.isValid) isValid = false;
-            });
-            return isValid;
-        };
-
-        Object.keys(formConfig).forEach(fieldName => {
-            const input = form.querySelector(`[name="${fieldName}"]`);
-            if (!input) return;
-
-            input.addEventListener('input', () => {
-                validateAndShowError(fieldName, true);
-                if (submitBtn) {
-                    submitBtn.disabled = !validateAllFields(false);
-                }
-            });
-
-            input.addEventListener('blur', () => {
-                validateAndShowError(fieldName, true);
-            });
-        });
-
-        form.addEventListener('submit', (e) => {
-            e.preventDefault();
-            
-            if (validateAllFields(true)) {
-                const modal = document.getElementById('successModal');
-                if (modal) modal.style.display = 'block';
-            }
-        });
-    },
-    closeModal() {
-        const modal = document.getElementById('successModal');
-        if (modal) {
-            modal.style.display = 'none';
-            const form = document.querySelector('form');
-            if (form) {
-                form.reset();
-                form.querySelectorAll('.error-message').forEach(error => {
-                    error.style.display = 'none';
-                    error.textContent = '';
-                });
-            }
+        maxLength: {
+            value: 32,
+            message: 'Mật khẩu không được vượt quá 32 ký tự'
         }
     }
 };
+
+function validateField(formElement, fieldName, fieldValue, validationRules) {
+    const rulesForField = validationRules[fieldName];
+    if (!rulesForField) return { isValid: true };
+    
+    const ruleNames = Object.keys(rulesForField);
+    
+    for (const ruleName of ruleNames) {
+        const ruleDetails = rulesForField[ruleName];
+        let isValid = true;
+
+        if (typeof regex[ruleName] === 'function') {
+            if (ruleName === 'match') {
+                const targetInputElement = formElement.querySelector(`[name="${ruleDetails.value}"]`);
+                isValid = targetInputElement ? regex[ruleName](targetInputElement.value).test(fieldValue) : false;
+            } else {
+                isValid = regex[ruleName](ruleDetails.value).test(fieldValue);
+            }
+        } 
+        else if (regex[ruleName]) {
+            isValid = regex[ruleName].test(fieldValue);
+        }
+
+        if (!isValid) {
+            return {
+                isValid: false,
+                message: ruleDetails.message
+            };
+        }
+    }
+    
+    return { isValid: true };
+}
+
+function setupFormValidation(formId, rules) {
+    const form = document.getElementById(formId);
+    if (!form) return;
+
+    const submitBtn = form.querySelector('[type="submit"]');
+
+    function validateAndShowError(fieldName, showErrors = true) {
+        const input = form.querySelector(`[name="${fieldName}"]`);
+        if (!input) return { isValid: true };
+
+        const result = validateField(form, fieldName, input.value, rules);
+        const errorElement = document.getElementById(`${fieldName}Error`);
+
+        if (errorElement && showErrors) {
+            errorElement.textContent = result.isValid ? '' : result.message;
+            errorElement.style.display = result.isValid ? 'none' : 'block';
+        }
+
+        return result;
+    }
+
+    function validateAllFields(showErrors = true) {
+        let isValid = true;
+        Object.keys(rules).forEach(fieldName => {
+            const result = validateAndShowError(fieldName, showErrors);
+            if (!result.isValid) isValid = false;
+        });
+        return isValid;
+    }
+
+    Object.keys(rules).forEach(fieldName => {
+        const input = form.querySelector(`[name="${fieldName}"]`);
+        if (!input) return;
+
+        input.addEventListener('input', () => {
+            validateAndShowError(fieldName, true);
+            if (submitBtn) {
+                submitBtn.disabled = !validateAllFields(false);
+            }
+        });
+
+        input.addEventListener('blur', () => {
+            validateAndShowError(fieldName, true);
+        });
+    });
+
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        
+        if (validateAllFields(true)) {
+            const modal = document.getElementById('successModal');
+            if (modal) modal.style.display = 'block';
+        }
+    });
+}
 
 function closeModal() {
     const modal = document.getElementById('successModal');
@@ -199,5 +203,5 @@ function closeModal() {
     }
 }
 
-FormValidation.registerForm('loginForm', loginRules);
-FormValidation.registerForm('registrationForm', registrationRules);
+setupFormValidation('loginForm', loginRules);
+setupFormValidation('registrationForm', registrationRules);
