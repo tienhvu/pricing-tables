@@ -96,53 +96,76 @@ const loginRules = {
     }
 };
 
-function validateField(formElement, changedInput, allInputs, rules) {
-    let formValid = true;
-    
-    for (const input of allInputs) {
-        const fieldValue = input.value;
-        const rulesForField = rules[input.name];
-        const errorElement = document.getElementById(`${input.name}Error`);
+function showError(input, message) {
+    const errorElement = document.getElementById(`${input.name}Error`);
+    if (errorElement) {
+        errorElement.textContent = message;
+        errorElement.style.display = 'block';
+    }
+}
+
+function hideError(input) {
+    const errorElement = document.getElementById(`${input.name}Error`);
+    if (errorElement) {
+        errorElement.textContent = '';
+        errorElement.style.display = 'none';
+    }
+}
+
+function validateField(formElement, input, validationRules) {
+    const fieldValue = input.value;
+    const rulesForField = validationRules[input.name];
+    if (!rulesForField) return { isValid: true };
+
+    const ruleNames = Object.keys(rulesForField);
+
+    for (const ruleName of ruleNames) {
+        const ruleDetails = rulesForField[ruleName];
         let isValid = true;
-        let message = '';
 
-        if (rulesForField) {
-            for (const ruleName of Object.keys(rulesForField)) {
-                const ruleDetails = rulesForField[ruleName];
-
-                if (regex[ruleName]) {
-                    isValid = regex[ruleName].test(fieldValue);
-                } else {
-                    switch (ruleName) {
-                        case 'minLength':
-                            isValid = fieldValue.length >= ruleDetails.value;
-                            break;
-                        case 'maxLength':
-                            isValid = fieldValue.length <= ruleDetails.value;
-                            break;
-                        case 'match':
-                            const targetInput = formElement.querySelector(`[name="${ruleDetails.value}"]`);
-                            isValid = targetInput && fieldValue === targetInput.value;
-                            break;
-                    }
-                }
-
-                if (!isValid) {
-                    message = ruleDetails.message;
+        if (regex[ruleName]) {
+            isValid = regex[ruleName].test(fieldValue);
+        } else {
+            switch (ruleName) {
+                case 'minLength':
+                    isValid = fieldValue.length >= ruleDetails.value;
                     break;
-                }
+                case 'maxLength':
+                    isValid = fieldValue.length <= ruleDetails.value;
+                    break;
+                case 'match':
+                    const targetInput = formElement.querySelector(`[name="${ruleDetails.value}"]`);
+                    isValid = targetInput && fieldValue === targetInput.value;
+                    break;
             }
         }
-
-        if (errorElement) {
-            errorElement.textContent = message;
-            errorElement.style.display = isValid ? 'none' : 'block';
-        }
         
-        formValid = formValid && isValid;
+        if (!isValid) {
+            showError(input, ruleDetails.message);
+            return {
+                isValid: false,
+                message: ruleDetails.message
+            };
+        }
     }
 
-    return formValid;
+    hideError(input);
+    return { isValid: true };
+}
+
+function isFormValid(form, rules) {
+    const noErrors = !form.querySelector('.error-message[style*="block"]');
+    
+    const requiredFields = Object.entries(rules).filter(([fieldName, fieldRules]) => 
+        fieldRules.required
+    );
+    
+    const allRequiredFilled = requiredFields.every(([fieldName]) => {
+        const input = form.querySelector(`[name="${fieldName}"]`);
+        return input && input.value.trim() !== '';
+    });
+
+    return noErrors && allRequiredFilled;
 }
 
 function validateForm(formId, rules) {
@@ -158,8 +181,8 @@ function validateForm(formId, rules) {
 
     inputs.forEach(input => {
         input.addEventListener('input', () => {
-            const isFormValid = validateField(form, input, inputs, rules);
-            submitBtn.disabled = !isFormValid;
+            validateField(form, input, rules);
+            submitBtn.disabled = !isFormValid(form, rules);
         });
     });
 
@@ -179,10 +202,8 @@ function closeModal() {
             form.reset();
             const submitBtn = form.querySelector('[type="submit"]');
             submitBtn.disabled = true;
-            form.querySelectorAll('.error-message').forEach(error => {
-                error.style.display = 'none';
-                error.textContent = '';
-            });
+            const inputs = form.querySelectorAll('input');
+            inputs.forEach(input => hideError(input));
         }
     }
 }
