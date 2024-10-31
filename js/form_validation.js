@@ -96,54 +96,53 @@ const loginRules = {
     }
 };
 
-function validateField(formElement, input, validationRules) {
-    const fieldValue = input.value;
-    const rulesForField = validationRules[input.name];
-    if (!rulesForField) return { isValid: true };
-
-    const ruleNames = Object.keys(rulesForField);
-
-    for (const ruleName of ruleNames) {
-        const ruleDetails = rulesForField[ruleName];
+function validateField(formElement, changedInput, allInputs, rules) {
+    let formValid = true;
+    
+    for (const input of allInputs) {
+        const fieldValue = input.value;
+        const rulesForField = rules[input.name];
+        const errorElement = document.getElementById(`${input.name}Error`);
         let isValid = true;
+        let message = '';
 
-        if (regex[ruleName]) {
-            isValid = regex[ruleName].test(fieldValue);
-        } else {
-            switch (ruleName) {
-                case 'minLength':
-                    isValid = fieldValue.length >= ruleDetails.value;
+        if (rulesForField) {
+            for (const ruleName of Object.keys(rulesForField)) {
+                const ruleDetails = rulesForField[ruleName];
+
+                if (regex[ruleName]) {
+                    isValid = regex[ruleName].test(fieldValue);
+                } else {
+                    switch (ruleName) {
+                        case 'minLength':
+                            isValid = fieldValue.length >= ruleDetails.value;
+                            break;
+                        case 'maxLength':
+                            isValid = fieldValue.length <= ruleDetails.value;
+                            break;
+                        case 'match':
+                            const targetInput = formElement.querySelector(`[name="${ruleDetails.value}"]`);
+                            isValid = targetInput && fieldValue === targetInput.value;
+                            break;
+                    }
+                }
+
+                if (!isValid) {
+                    message = ruleDetails.message;
                     break;
-                case 'maxLength':
-                    isValid = fieldValue.length <= ruleDetails.value;
-                    break;
-                case 'match':
-                    const targetInput = formElement.querySelector(`[name="${ruleDetails.value}"]`);
-                    isValid = targetInput && fieldValue === targetInput.value;
-                    break;
+                }
             }
         }
 
-        if (!isValid) {
-            const errorElement = document.getElementById(`${input.name}Error`);
-            if (errorElement) {
-                errorElement.textContent = ruleDetails.message;
-                errorElement.style.display = 'block';
-            }
-            return {
-                isValid: false,
-                message: ruleDetails.message
-            };
+        if (errorElement) {
+            errorElement.textContent = message;
+            errorElement.style.display = isValid ? 'none' : 'block';
         }
+        
+        formValid = formValid && isValid;
     }
 
-    const errorElement = document.getElementById(`${input.name}Error`);
-    if (errorElement) {
-        errorElement.textContent = '';
-        errorElement.style.display = 'none';
-    }
-
-    return { isValid: true };
+    return formValid;
 }
 
 function validateForm(formId, rules) {
@@ -151,20 +150,16 @@ function validateForm(formId, rules) {
     if (!form) return;
 
     const submitBtn = form.querySelector('[type="submit"]');
-    submitBtn.disabled = true;
     if (!submitBtn) return;
+    submitBtn.disabled = true;
+
     const inputs = Array.from(form.querySelectorAll('input'))
-    .filter(input => rules[input.name]);
+        .filter(input => rules[input.name]);
 
     inputs.forEach(input => {
         input.addEventListener('input', () => {
-            validateField(form, input, rules);
-            const allFieldsValid = inputs.every(input => {
-                const result = validateField(form, input, rules);
-                return result.isValid;
-            });
-
-            submitBtn.disabled = !allFieldsValid;
+            const isFormValid = validateField(form, input, inputs, rules);
+            submitBtn.disabled = !isFormValid;
         });
     });
 
@@ -173,7 +168,6 @@ function validateForm(formId, rules) {
         const modal = document.getElementById('successModal');
         if (modal) modal.style.display = 'block';
     });
-
 }
 
 function closeModal() {
