@@ -54,10 +54,6 @@ const registrationRules = {
       value: true,
       message: "Xác nhận mật khẩu là bắt buộc",
     },
-    match: {
-      value: "password",
-      message: "Mật khẩu không khớp",
-    },
   },
 };
 
@@ -99,9 +95,9 @@ const loginRules = {
 function showError(input, message) {
   const errorElement = document.getElementById(`${input.name}Error`);
   if (errorElement) {
+    errorElement.classList.add("error");
     errorElement.textContent = message;
     errorElement.style.display = "block";
-    errorElement.classList.add("error");
   }
 }
 
@@ -114,7 +110,7 @@ function hideError(input) {
   }
 }
 
-function validateField(formElement, input, validationRules) {
+function validateField(input, validationRules) {
   const fieldValue = input.value;
   const rulesForField = validationRules[input.name];
   if (!rulesForField) return true;
@@ -135,13 +131,6 @@ function validateField(formElement, input, validationRules) {
           break;
         case "maxLength":
           isValid = fieldValue.length <= ruleDetails.value;
-          break;
-        case "match":
-          const targetInput = formElement.querySelector(
-            `[name="${ruleDetails.value}"]`
-          );
-          isValid = targetInput && fieldValue === targetInput.value;
-          break;
       }
     }
 
@@ -150,28 +139,35 @@ function validateField(formElement, input, validationRules) {
       return false;
     }
   }
-
   hideError(input);
-
   return true;
 }
 
-function validateMatchPassword(formElement, input, validationRules) {
-  if (formElement.id !== "registrationForm") return;
+function validateMatchPassword(formId) {
+  const form = document.getElementById(formId);
+  if (!form) return;
 
-  Object.entries(validationRules).forEach(([fieldName, fieldRules]) => {
-    if (fieldRules.match && fieldRules.match.value === input.name) {
-      const matchInput = formElement.querySelector(`[name="${fieldName}"]`);
-      if (matchInput) {
-        validateField(formElement, matchInput, validationRules);
+  const passwordInput = form.querySelector('[name="password"]');
+  const confirmInput = form.querySelector('[name="confirmPassword"]');
+
+  if (!passwordInput || !confirmInput) return;
+
+  const checkMatch = () => {
+    if (confirmInput.value) {
+      if (confirmInput.value !== passwordInput.value) {
+        showError(confirmInput, "Mật khẩu không khớp");
+      } else {
+        hideError(confirmInput);
       }
     }
-  });
+  };
+
+  confirmInput.addEventListener("input", checkMatch);
+  passwordInput.addEventListener("input", checkMatch);
 }
 
 function isFormValid(form, rules) {
   const noErrors = !form.querySelector(".error");
-
   const requiredFields = Object.entries(rules).filter(
     ([fieldRules]) => fieldRules.required
   );
@@ -198,11 +194,10 @@ function validateForm(formId, rules) {
 
   inputs.forEach((input) => {
     input.addEventListener("input", () => {
-      const isValid = validateField(form, input, rules);
-      if (isValid) {
-        validateMatchPassword(form, input, rules);
-      }
-      submitBtn.disabled = !isValid;
+      validateField(input, rules);
+      setTimeout(() => {
+        submitBtn.disabled = !isFormValid(form, rules);
+      }, 0);
     });
   });
 
@@ -230,3 +225,4 @@ function closeModal() {
 
 validateForm("loginForm", loginRules);
 validateForm("registrationForm", registrationRules);
+validateMatchPassword("registrationForm", registrationRules);
