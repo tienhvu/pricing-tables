@@ -49,12 +49,6 @@ const registrationRules = {
       message: "Mật khẩu không được vượt quá 32 ký tự",
     },
   },
-  confirmPassword: {
-    required: {
-      value: true,
-      message: "Xác nhận mật khẩu là bắt buộc",
-    },
-  },
 };
 
 const loginRules = {
@@ -121,7 +115,6 @@ function validateField(input, validationRules) {
     const ruleDetails = rulesForField[ruleName];
 
     let isValid = true;
-
     if (regex[ruleName]) {
       isValid = regex[ruleName].test(fieldValue);
     } else {
@@ -131,6 +124,7 @@ function validateField(input, validationRules) {
           break;
         case "maxLength":
           isValid = fieldValue.length <= ruleDetails.value;
+          break;
       }
     }
 
@@ -143,36 +137,45 @@ function validateField(input, validationRules) {
   return true;
 }
 
-function validateMatchPassword(formId) {
-  const form = document.getElementById(formId);
-  if (!form) return;
+const checkMatch = () => {
+  const passwordInput = document.querySelector('[name="password"]');
+  const confirmPasswordInput = document.querySelector(
+    '[name="confirmPassword"]'
+  );
+  const submitBtn = document.querySelector('[type="submit"]');
 
-  const passwordInput = form.querySelector('[name="password"]');
-  const confirmInput = form.querySelector('[name="confirmPassword"]');
+  const validate = () => {
+    const passwordValue = passwordInput.value;
+    const confirmPasswordValue = confirmPasswordInput.value;
 
-  if (!passwordInput || !confirmInput) return;
+    if (!confirmPasswordValue) {
+      showError(confirmPasswordInput, "Xác nhận mật khẩu là bắt buộc");
+      submitBtn.disabled = true;
+      return;
+    } else {
+      hideError(confirmPasswordInput);
+    }
 
-  const checkMatch = () => {
-    if (confirmInput.value) {
-      if (confirmInput.value !== passwordInput.value) {
-        showError(confirmInput, "Mật khẩu không khớp");
-      } else {
-        hideError(confirmInput);
-      }
+    const isValid = confirmPasswordValue === passwordValue;
+    if (!isValid) {
+      showError(confirmPasswordInput, "Mật khẩu không khớp");
+      submitBtn.disabled = true;
+    } else {
+      hideError(confirmPasswordInput);
+      submitBtn.disabled = false;
     }
   };
 
-  confirmInput.addEventListener("input", checkMatch);
-  passwordInput.addEventListener("input", checkMatch);
-}
-
+  passwordInput.addEventListener("input", validate);
+  confirmPasswordInput.addEventListener("input", validate);
+};
 function isFormValid(form, rules) {
   const noErrors = !form.querySelector(".error");
-  const requiredFields = Object.entries(rules).filter(
-    ([fieldRules]) => fieldRules.required
+  const requiredFields = Object.keys(rules).filter(
+    (fieldName) => rules[fieldName].required
   );
 
-  const allRequiredFilled = requiredFields.every(([fieldName]) => {
+  const allRequiredFilled = requiredFields.every((fieldName) => {
     const input = form.querySelector(`[name="${fieldName}"]`);
     return input && input.value.trim() !== "";
   });
@@ -195,9 +198,7 @@ function validateForm(formId, rules) {
   inputs.forEach((input) => {
     input.addEventListener("input", () => {
       validateField(input, rules);
-      setTimeout(() => {
-        submitBtn.disabled = !isFormValid(form, rules);
-      }, 0);
+      submitBtn.disabled = !isFormValid(form, rules);
     });
   });
 
@@ -222,7 +223,6 @@ function closeModal() {
     }
   }
 }
-
+checkMatch();
 validateForm("loginForm", loginRules);
 validateForm("registrationForm", registrationRules);
-validateMatchPassword("registrationForm", registrationRules);
