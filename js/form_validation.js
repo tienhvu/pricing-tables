@@ -137,12 +137,17 @@ function validateField(input, validationRules) {
   return true;
 }
 
-const checkMatch = () => {
-  const passwordInput = document.querySelector('[name="password"]');
-  const confirmPasswordInput = document.querySelector(
+function checkMatch(formId) {
+  const formElement = document.getElementById(formId);
+  if (!formElement) return;
+
+  const passwordInput = formElement.querySelector('[name="password"]');
+  const confirmPasswordInput = formElement.querySelector(
     '[name="confirmPassword"]'
   );
-  const submitBtn = document.querySelector('[type="submit"]');
+  const submitBtn = formElement.querySelector('[type="submit"]');
+
+  if (!passwordInput || !confirmPasswordInput || !submitBtn) return;
 
   const validate = () => {
     const passwordValue = passwordInput.value;
@@ -168,7 +173,8 @@ const checkMatch = () => {
 
   passwordInput.addEventListener("input", validate);
   confirmPasswordInput.addEventListener("input", validate);
-};
+}
+
 function isFormValid(form, rules) {
   const noErrors = !form.querySelector(".error");
   const requiredFields = Object.keys(rules).filter(
@@ -223,6 +229,7 @@ function closeModal() {
     }
   }
 }
-checkMatch();
+
 validateForm("loginForm", loginRules);
+checkMatch("registrationForm");
 validateForm("registrationForm", registrationRules);
